@@ -82,11 +82,7 @@
       overflow:hidden;
     }
 
-    .main{
-      min-width:0;
-      padding:20px 20px 34px;
-    }
-
+    .main{min-width:0;padding:20px 20px 34px}
     .rightbar{
       position:sticky; top:0; height:100vh; max-height:100vh;
       overflow:hidden; padding:18px 14px;
@@ -94,10 +90,7 @@
       border-left:1px solid rgba(255,255,255,.08);
       backdrop-filter:blur(10px);
     }
-    .rightSection{
-      display:grid; gap:14px; height:100%;
-      overflow:auto; padding-right:2px;
-    }
+    .rightSection{display:grid;gap:14px;height:100%;overflow:auto;padding-right:2px}
 
     .logoWrap{display:flex;align-items:center;gap:10px}
     .logoBadge{
@@ -105,839 +98,308 @@
       background:linear-gradient(180deg,#ffe97b,#ffbe20);
       box-shadow:0 7px 0 #c88600,0 14px 18px rgba(0,0,0,.2);
       border:3px solid rgba(255,255,255,.35);
-      display:grid;place-items:center;font-size:22px;color:#6b4200;flex-shrink:0;
+      display:grid;place-items:center;font-size:22px;color:#6b4200;flex-shrink:0;overflow:hidden;
     }
-    .brandTitle{
-      font-family:"Baloo 2",sans-serif;
-      font-size:28px;line-height:1;font-weight:800;color:#fff6ce;text-shadow:0 3px 0 rgba(92,39,0,.35)
-    }
-    .brandSub{
-      font-size:10px;font-weight:900;letter-spacing:.7px;text-transform:uppercase;color:#ffd4f7;margin-top:-2px
-    }
+    .logoBadge img{width:86%;height:86%;object-fit:contain;display:block;filter:drop-shadow(0 3px 6px rgba(0,0,0,.18))}
+    .brandTitle{font-family:"Baloo 2",sans-serif;font-size:28px;line-height:1;font-weight:800;color:#fff6ce;text-shadow:0 3px 0 rgba(92,39,0,.35)}
+    .brandSub{font-size:10px;font-weight:900;letter-spacing:.7px;text-transform:uppercase;color:#ffd4f7;margin-top:-2px}
 
     .resources{display:grid;gap:10px}
     .resource{
-      position:relative;
-      border-radius:18px;
-      padding:10px 12px;
-      border:3px solid rgba(255,255,255,.18);
-      overflow:hidden;
-      box-shadow:var(--shadow-soft);
+      position:relative;border-radius:18px;padding:10px 12px;border:3px solid rgba(255,255,255,.18);overflow:visible;
+      box-shadow:var(--shadow-soft);cursor:pointer;
     }
-    .resource::before{
-      content:"";
-      position:absolute; inset:0;
-      background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 30%);
-      pointer-events:none;
-    }
+    .resource::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 30%);pointer-events:none;border-radius:inherit}
     .resource.gold{background:linear-gradient(180deg,#ffd54d,#ff9e09)}
     .resource.gem{background:linear-gradient(180deg,#68ddff,#0b96ff)}
     .resourceTop{display:flex;align-items:center;justify-content:space-between;gap:8px}
-    .resourceLabel{
-      font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;color:rgba(42,22,0,.8)
-    }
+    .resourceLabel{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;color:rgba(42,22,0,.8)}
     .resource.gem .resourceLabel{color:rgba(0,36,73,.85)}
-    .resourceValue{
-      font-family:"Baloo 2",sans-serif;
-      font-size:28px;line-height:1;font-weight:800;
-      text-shadow:0 3px 0 rgba(0,0,0,.15)
+    .resourceValue{font-family:"Baloo 2",sans-serif;font-size:28px;line-height:1;font-weight:800;text-shadow:0 3px 0 rgba(0,0,0,.15)}
+
+    .currencyIcon{
+      width:38px;height:38px;border-radius:50%;position:relative;flex-shrink:0;display:grid;place-items:center;
+      box-shadow:0 5px 12px rgba(0,0,0,.18), inset 0 2px 0 rgba(255,255,255,.35);
+      border:2px solid rgba(255,255,255,.35);overflow:hidden;background:rgba(255,255,255,.14)
     }
+    .currencyIcon.spid{border-radius:12px}
+    .currencyIcon img{width:100%;height:100%;object-fit:contain;display:block}
+
+    .infoBubble{
+      position:absolute;left:12px;right:12px;top:calc(100% + 8px);z-index:25;
+      background:linear-gradient(180deg,#5b1eb9,#2d0b5f);
+      border:2px solid rgba(255,255,255,.14);border-radius:16px;padding:10px 12px;
+      box-shadow:var(--shadow-hard);opacity:0;transform:translateY(6px);pointer-events:none;transition:.18s ease;
+    }
+    .resource:hover .infoBubble{opacity:1;transform:none}
+    .infoBubble strong{display:block;font-size:12px;margin-bottom:4px}
+    .infoBubble p{font-size:11px;font-weight:700;line-height:1.35;color:#f6ddff}
 
     .nav{display:grid;gap:8px}
     .navBtn{
-      border:none; cursor:pointer; font:inherit;
-      display:flex; align-items:center; gap:10px;
-      padding:11px 12px;
-      border-radius:18px;
-      background:linear-gradient(180deg,#5320a1,#34106d);
-      color:#fff;
-      border:3px solid rgba(255,255,255,.10);
-      box-shadow:0 5px 0 rgba(31,6,66,.5);
-      font-weight:900;
-      text-align:left;
-      transition:.12s transform;
-      font-size:14px;
-      min-height:52px;
+      border:none;cursor:pointer;font:inherit;display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:18px;
+      background:linear-gradient(180deg,#5320a1,#34106d);color:#fff;border:3px solid rgba(255,255,255,.10);
+      box-shadow:0 5px 0 rgba(31,6,66,.5);font-weight:900;text-align:left;transition:.12s transform;font-size:14px;min-height:52px;
     }
     .navBtn:hover{transform:translateY(-1px)}
-    .navBtn.active{
-      background:linear-gradient(180deg,#ffe76d,#ffbc1f);
-      color:#5b3900;
-      box-shadow:0 5px 0 #c88600;
-    }
-    .navIcon{
-      width:34px;height:34px;border-radius:12px;
-      display:grid;place-items:center;
-      background:rgba(255,255,255,.16);
-      font-size:16px;
-      flex-shrink:0;
-    }
+    .navBtn.active{background:linear-gradient(180deg,#ffe76d,#ffbc1f);color:#5b3900;box-shadow:0 5px 0 #c88600}
+    .navIcon{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.16);font-size:16px;flex-shrink:0;overflow:hidden}
     .navBtn.active .navIcon{background:rgba(255,255,255,.34)}
 
-    .sideFooter{
-      margin-top:auto;
-      border-radius:20px;
-      padding:12px;
-      border:3px solid rgba(255,255,255,.12);
-      background:linear-gradient(180deg,#ff79e9,#be49ff);
-      box-shadow:var(--shadow-soft);
-    }
-    .sideFooter h4{
-      font-family:"Baloo 2",sans-serif;
-      font-size:20px; line-height:1;
-    }
-    .sideFooter p{
-      margin-top:6px;font-size:11px;font-weight:800;color:rgba(255,255,255,.92)
-    }
+    .arcadeIcon{width:100%;height:100%;border-radius:12px;display:grid;place-items:center;font-size:16px;position:relative;font-weight:900;color:#fff;box-shadow:inset 0 2px 0 rgba(255,255,255,.25)}
+    .arcadeIcon::after{content:"";position:absolute;inset:3px;border-radius:10px;border:1px solid rgba(255,255,255,.18);pointer-events:none}
+    .arcadeIcon.wheel{background:linear-gradient(180deg,#ff83ea,#c74dff)}
+    .arcadeIcon.lottery{background:linear-gradient(180deg,#ffd868,#ff9d18);color:#6b3a00}
+    .arcadeIcon.scratch{background:linear-gradient(180deg,#77e9ff,#1498ff)}
+    .arcadeIcon.market{background:linear-gradient(180deg,#7bf58f,#17c74e);color:#0b3817}
+    .arcadeIcon.reward{background:linear-gradient(180deg,#ffe875,#ffbf1f);color:#694200}
 
-    .topDesktop{
-      position:sticky;
-      top:0;
-      z-index:35;
-      display:flex;align-items:center;justify-content:flex-end;gap:14px;
-      margin:-20px -20px 14px;
-      padding:16px 20px 14px;
-      background:linear-gradient(180deg,rgba(47,8,114,.95),rgba(47,8,114,.82),rgba(47,8,114,.35),transparent);
-      backdrop-filter:blur(10px);
-      min-height:var(--topbar-h);
-    }
-    .topActions{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      flex-wrap:nowrap;
-    }
-    .topPill{
-      padding:14px 16px;border-radius:20px;
-      background:linear-gradient(180deg,#72e6ff,#1094ff);
-      color:#072f54;font-weight:900;font-size:14px;
-      box-shadow:0 7px 0 #0b6fb2,0 16px 22px rgba(0,0,0,.2);
-      border:3px solid rgba(255,255,255,.3);
-      cursor:pointer; white-space:nowrap;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      min-height:50px;
-    }
+    .sideFooter{margin-top:auto;border-radius:20px;padding:12px;border:3px solid rgba(255,255,255,.12);background:linear-gradient(180deg,#ff79e9,#be49ff);box-shadow:var(--shadow-soft)}
+    .sideFooter h4{font-family:"Baloo 2",sans-serif;font-size:20px; line-height:1}
+    .sideFooter p{margin-top:6px;font-size:11px;font-weight:800;color:rgba(255,255,255,.92)}
+
+    .topDesktop{position:sticky;top:0;z-index:35;display:flex;align-items:center;justify-content:flex-end;gap:14px;margin:-20px -20px 14px;padding:16px 20px 14px;background:linear-gradient(180deg,rgba(47,8,114,.95),rgba(47,8,114,.82),rgba(47,8,114,.35),transparent);backdrop-filter:blur(10px);min-height:var(--topbar-h)}
+    .topActions{display:flex;gap:12px;align-items:center;flex-wrap:nowrap}
+    .topPill{padding:14px 16px;border-radius:20px;background:linear-gradient(180deg,#72e6ff,#1094ff);color:#072f54;font-weight:900;font-size:14px;box-shadow:0 7px 0 #0b6fb2,0 16px 22px rgba(0,0,0,.2);border:3px solid rgba(255,255,255,.3);cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px}
 
     .playerMenuWrap{position:relative}
-    .playerIconBtn{
-      width:58px;height:58px;border-radius:20px;
-      border:none;cursor:pointer;
-      background:linear-gradient(180deg,#6221ba,#40117e);
-      border:3px solid rgba(255,255,255,.16);
-      box-shadow:var(--shadow-soft);
-      display:grid;place-items:center;
-      color:#fff;
-    }
-    .avatar{
-      width:46px;height:46px;border-radius:16px;
-      background:linear-gradient(180deg,#83ebff,#0ea5ff);
-      color:#07385d;font-weight:900;
-      display:grid;place-items:center;
-      border:3px solid rgba(255,255,255,.35);
-      box-shadow:0 6px 0 #0b79b6;
-      font-size:20px;flex-shrink:0;
-    }
-    .playerDropdown{
-      position:absolute;
-      right:0; top:calc(100% + 10px);
-      width:280px;
-      border-radius:24px;
-      padding:12px;
-      background:linear-gradient(180deg,#4e1797,#2a0b59);
-      border:3px solid rgba(255,255,255,.12);
-      box-shadow:var(--shadow-hard);
-      display:none;
-      z-index:50;
-    }
+    .playerIconBtn{width:58px;height:58px;border-radius:20px;border:none;cursor:pointer;background:linear-gradient(180deg,#6221ba,#40117e);border:3px solid rgba(255,255,255,.16);box-shadow:var(--shadow-soft);display:grid;place-items:center;color:#fff}
+    .avatar{width:46px;height:46px;border-radius:16px;background:linear-gradient(180deg,#83ebff,#0ea5ff);color:#07385d;font-weight:900;display:grid;place-items:center;border:3px solid rgba(255,255,255,.35);box-shadow:0 6px 0 #0b79b6;font-size:20px;flex-shrink:0}
+    .playerDropdown{position:absolute;right:0;top:calc(100% + 10px);width:280px;border-radius:24px;padding:12px;background:linear-gradient(180deg,#4e1797,#2a0b59);border:3px solid rgba(255,255,255,.12);box-shadow:var(--shadow-hard);display:none;z-index:50}
     .playerDropdown.open{display:block}
-    .playerDropdownHeader{
-      display:flex;align-items:center;gap:10px;
-      padding:8px 8px 12px;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      margin-bottom:10px;
-    }
-    .dropBtn{
-      width:100%;
-      border:none; cursor:pointer;
-      padding:12px 14px;
-      text-align:left;
-      border-radius:16px;
-      background:transparent;
-      color:#fff; font-weight:900;
-    }
+    .playerDropdownHeader{display:flex;align-items:center;gap:10px;padding:8px 8px 12px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:10px}
+    .dropBtn{width:100%;border:none;cursor:pointer;padding:12px 14px;text-align:left;border-radius:16px;background:transparent;color:#fff;font-weight:900}
     .dropBtn:hover{background:rgba(255,255,255,.08)}
 
     .screen{display:none;animation:screenIn .24s ease}
     .screen.active{display:block}
     @keyframes screenIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-    #screen-home{
-      position:relative;
-      padding-bottom:28px;
-    }
-    #screen-home::after{
-      content:"";
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      height:180px;
-      pointer-events:none;
-      background:linear-gradient(
-        180deg,
-        rgba(22,2,50,0) 0%,
-        rgba(22,2,50,.18) 35%,
-        rgba(22,2,50,.42) 68%,
-        rgba(22,2,50,.68) 100%
-      );
-      border-radius:0 0 28px 28px;
-    }
-    #screen-home > *{
-      position:relative;
-      z-index:1;
-    }
+    #screen-home{position:relative;padding-bottom:28px}
+    #screen-home::after{content:"";position:absolute;left:0;right:0;bottom:0;height:180px;pointer-events:none;background:linear-gradient(180deg,rgba(22,2,50,0) 0%,rgba(22,2,50,.18) 35%,rgba(22,2,50,.42) 68%,rgba(22,2,50,.68) 100%);border-radius:0 0 28px 28px}
+    #screen-home > *{position:relative;z-index:1}
 
-    .hero{
-      border-radius:34px;
-      border:4px solid rgba(255,255,255,.18);
-      background:
-        radial-gradient(circle at 20% 15%, rgba(255,255,255,.22), transparent 18%),
-        radial-gradient(circle at 80% 24%, rgba(255,255,255,.12), transparent 18%),
-        linear-gradient(180deg,#ff5ce0 0%,#b44eff 42%,#5920bc 100%);
-      box-shadow:var(--shadow-hard);
-      padding:22px 20px 20px;
-      position:relative; overflow:hidden;
-      min-height:250px;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;right:-46px;top:-40px;width:220px;height:220px;border-radius:50%;
-      background:radial-gradient(circle,rgba(255,230,116,.82),rgba(255,179,0,.2) 45%,transparent 70%);
-    }
-    .hero::after{
-      content:"";
-      position:absolute;left:-50px;bottom:-70px;width:240px;height:240px;border-radius:50%;
-      background:radial-gradient(circle,rgba(86,216,255,.55),rgba(86,216,255,.14) 40%,transparent 70%);
-    }
-    .heroInner{
-      position:relative;z-index:2;
-      display:grid;
-      grid-template-columns:minmax(0,1fr) 180px;
-      gap:18px;
-      align-items:end;
-      min-height:220px;
-    }
-    .pill{
-      display:inline-flex;align-items:center;gap:6px;
-      padding:7px 12px;border-radius:999px;
-      background:linear-gradient(180deg,#ffe66c,#ffbe22);
-      color:#5d3900;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;
-      box-shadow:0 5px 0 #c88600;
-      margin-bottom:12px;
-    }
-    .heroTitle{
-      font-family:"Baloo 2",sans-serif;
-      font-size:clamp(36px,5vw,62px);line-height:.9;font-weight:800;letter-spacing:-1px;
-      text-shadow:0 4px 0 rgba(70,8,100,.35);
-      max-width:520px;
-    }
+    .hero{border-radius:34px;border:4px solid rgba(255,255,255,.18);background:radial-gradient(circle at 20% 15%, rgba(255,255,255,.22), transparent 18%),radial-gradient(circle at 80% 24%, rgba(255,255,255,.12), transparent 18%),linear-gradient(180deg,#ff5ce0 0%,#b44eff 42%,#5920bc 100%);box-shadow:var(--shadow-hard);padding:22px 20px 20px;position:relative;overflow:hidden;min-height:320px}
+    .hero::before{content:"";position:absolute;right:-46px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,230,116,.82),rgba(255,179,0,.2) 45%,transparent 70%)}
+    .hero::after{content:"";position:absolute;left:-50px;bottom:-70px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(86,216,255,.55),rgba(86,216,255,.14) 40%,transparent 70%)}
+    .heroInner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:18px;align-items:center;min-height:270px}
+    .pill{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;background:linear-gradient(180deg,#ffe66c,#ffbe22);color:#5d3900;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;box-shadow:0 5px 0 #c88600;margin-bottom:12px}
+    .heroTitle{font-family:"Baloo 2",sans-serif;font-size:clamp(36px,5vw,62px);line-height:.9;font-weight:800;letter-spacing:-1px;text-shadow:0 4px 0 rgba(70,8,100,.35);max-width:520px}
     .heroTitle span{color:#fff59d}
-    .heroText{
-      margin-top:10px;
-      font-size:15px;line-height:1.45;font-weight:700;
-      color:#fff0ff;max-width:520px;
-    }
-    .heroMascot{
-      justify-self:end;
-      width:150px;height:190px;border-radius:28px;
-      background:
-        radial-gradient(circle at 50% 24%, #fff 0 28px, transparent 29px),
-        radial-gradient(circle at 38% 23%, #151515 0 5px, transparent 6px),
-        radial-gradient(circle at 62% 23%, #151515 0 5px, transparent 6px),
-        radial-gradient(circle at 50% 35%, #ff6e7a 0 9px, transparent 10px),
-        linear-gradient(180deg,#ffe571,#ffb909);
-      box-shadow:0 8px 0 #c88600;
-      border:4px solid rgba(255,255,255,.35);
-      transform:rotate(-5deg);
-      position:relative;
-    }
-    .heroMascot::before,.heroMascot::after{
-      content:"";
-      position:absolute;
-      width:32px;height:32px;border-radius:50%;
-      background:#ffd93d;border:4px solid rgba(255,255,255,.25)
-    }
-    .heroMascot::before{left:-10px;top:24px}
-    .heroMascot::after{right:-10px;top:24px}
+    .heroText{margin-top:10px;font-size:15px;line-height:1.45;font-weight:700;color:#fff0ff;max-width:520px}
+    .heroMascotWrap{display:flex;justify-content:center;align-items:flex-end;height:100%;min-height:270px}
+    .heroMascotImg{width:min(100%,460px);max-height:500px;object-fit:contain;display:block;filter:drop-shadow(0 24px 34px rgba(0,0,0,.28))}
 
-    .ctaRow{
-      display:flex;
-      gap:12px;
-      margin-top:16px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
+    .screenBanner{margin-bottom:16px;border-radius:28px;padding:18px;border:4px solid rgba(255,255,255,.15);background:linear-gradient(180deg,#5520a5,#2b0b59);box-shadow:var(--shadow-hard);display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,430px);gap:14px;align-items:center;overflow:hidden}
+    .screenBanner h3{font-family:"Baloo 2",sans-serif;font-size:34px;line-height:.95}
+    .screenBanner p{margin-top:8px;font-size:14px;font-weight:700;color:#f3ddff;max-width:560px}
+    .screenBanner .screenBannerImg{width:100%;max-height:300px;object-fit:contain;justify-self:end;display:block;filter:drop-shadow(0 18px 28px rgba(0,0,0,.24))}
+    .predictionDuo{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:end}
+    .predictionDuo img{width:100%;max-height:260px;object-fit:contain;display:block;filter:drop-shadow(0 18px 28px rgba(0,0,0,.24))}
 
-    .btn3d,.btnGhost,.chip{border:none;cursor:pointer;font:inherit}
-    .btn3d,.btnGhost{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      min-height:50px;
-    }
-    .btn3d{
-      padding:15px 20px;border-radius:20px;
-      background:linear-gradient(180deg,#ffe76f,#ffbc1f);
-      color:#5b3800;font-weight:900;font-size:15px;
-      box-shadow:0 7px 0 #c88600,0 16px 22px rgba(0,0,0,.2);
-      border:3px solid rgba(255,255,255,.3);
-    }
-    .btnGhost{
-      padding:15px 20px;border-radius:20px;
-      background:linear-gradient(180deg,#72e6ff,#1094ff);
-      color:#072f54;font-weight:900;font-size:15px;
-      box-shadow:0 7px 0 #0b6fb2,0 16px 22px rgba(0,0,0,.2);
-      border:3px solid rgba(255,255,255,.3);
-    }
+    .ctaRow{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;align-items:center}
 
-    .btnDangerSoft{
-      border:none;
-      cursor:pointer;
-      font:inherit;
-      min-height:42px;
-      padding:10px 14px;
-      border-radius:16px;
-      background:rgba(255,255,255,.08);
-      color:#ffd2d8;
-      border:2px solid rgba(255,120,140,.28);
-      font-weight:800;
-      font-size:13px;
-      box-shadow:none;
-    }
-    .btnDangerSoft:hover{
-      background:rgba(255,120,140,.10);
-    }
+    .btn3d,.btnGhost,.chip,.subSwitchBtn{border:none;cursor:pointer;font:inherit}
+    .btn3d,.btnGhost{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px}
+    .btn3d{padding:15px 20px;border-radius:20px;background:linear-gradient(180deg,#ffe76f,#ffbc1f);color:#5b3800;font-weight:900;font-size:15px;box-shadow:0 7px 0 #c88600,0 16px 22px rgba(0,0,0,.2);border:3px solid rgba(255,255,255,.3)}
+    .btnGhost{padding:15px 20px;border-radius:20px;background:linear-gradient(180deg,#72e6ff,#1094ff);color:#072f54;font-weight:900;font-size:15px;box-shadow:0 7px 0 #0b6fb2,0 16px 22px rgba(0,0,0,.2);border:3px solid rgba(255,255,255,.3)}
+    .btnDangerSoft{border:none;cursor:pointer;font:inherit;min-height:42px;padding:10px 14px;border-radius:16px;background:rgba(255,255,255,.08);color:#ffd2d8;border:2px solid rgba(255,120,140,.28);font-weight:800;font-size:13px;box-shadow:none}
+    .btnDangerSoft:hover{background:rgba(255,120,140,.10)}
 
-    .sectionHead{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      margin:18px 2px 14px;
-      flex-wrap:wrap;
-    }
-    .sectionTitle{
-      font-family:"Baloo 2",sans-serif;
-      font-size:32px;line-height:1;font-weight:800;
-      text-shadow:0 3px 0 rgba(29,4,55,.35)
-    }
+    .sectionHead{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:18px 2px 14px;flex-wrap:wrap}
+    .sectionTitle{font-family:"Baloo 2",sans-serif;font-size:32px;line-height:1;font-weight:800;text-shadow:0 3px 0 rgba(29,4,55,.35)}
     .sectionSub{font-size:12px;font-weight:800;color:#ffdcff}
 
-    .giftStrip,
-    .bigCards,
-    .selectionCards,
-    .rewardGrid,
-    .taskList,
-    .marketList{
-      gap:14px;
-    }
+    .giftStrip,.bigCards,.selectionCards,.rewardGrid,.taskList,.marketList,.missionMiniGrid{gap:14px}
+    .giftStrip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:12px}
+    .giftMini{border-radius:20px;padding:12px;border:3px solid rgba(255,255,255,.16);background:linear-gradient(180deg,#5320a1,#34106d);box-shadow:var(--shadow-soft);min-height:112px}
+    .giftMiniTop{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:28px}
+    .giftMiniTitle{margin-top:8px;font-family:"Baloo 2",sans-serif;font-size:20px;line-height:1}
+    .giftMiniText{margin-top:4px;font-size:11px;font-weight:800;color:#f7ddff}
 
-    .giftStrip{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      margin-top:12px;
-    }
-    .giftMini{
-      border-radius:20px;
-      padding:12px;
-      border:3px solid rgba(255,255,255,.16);
-      background:linear-gradient(180deg,#5320a1,#34106d);
-      box-shadow:var(--shadow-soft);
-      min-height:112px;
-    }
-    .giftMiniTop{
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
-      font-size:28px;
-    }
-    .giftMiniTitle{
-      margin-top:8px;
-      font-family:"Baloo 2",sans-serif;
-      font-size:20px;line-height:1;
-    }
-    .giftMiniText{
-      margin-top:4px;
-      font-size:11px;font-weight:800;color:#f7ddff;
-    }
-
-    .bigCards{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      margin-top:12px;
-    }
-    .gameCard{
-      position:relative;
-      border-radius:28px;
-      padding:18px;
-      border:4px solid rgba(255,255,255,.17);
-      box-shadow:var(--shadow-hard);
-      overflow:hidden;
-      cursor:pointer;
-      transition:.15s transform;
-      min-height:220px;
-    }
+    .bigCards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:12px}
+    .gameCard{position:relative;border-radius:28px;padding:18px;border:4px solid rgba(255,255,255,.17);box-shadow:var(--shadow-hard);overflow:hidden;cursor:pointer;transition:.15s transform;min-height:220px}
     .gameCard:hover{transform:translateY(-3px)}
     .gameCard.yellow{background:linear-gradient(180deg,#ffd84b,#ff9e17)}
     .gameCard.pink{background:linear-gradient(180deg,#ff76e7,#cf45ff)}
     .gameCard.blue{background:linear-gradient(180deg,#76e7ff,#1496ff)}
     .gameCard.green{background:linear-gradient(180deg,#72f58b,#18c94f)}
     .gameCardHead{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-    .gameEmoji{
-      width:72px;height:72px;border-radius:24px;background:rgba(255,255,255,.18);
-      border:3px solid rgba(255,255,255,.25);
-      display:grid;place-items:center;font-size:34px;box-shadow:0 6px 0 rgba(0,0,0,.12)
-    }
-    .gameName{
-      margin-top:10px;font-family:"Baloo 2",sans-serif;font-size:34px;line-height:.9;font-weight:800;color:#fffdf7
-    }
+    .gameEmoji{width:72px;height:72px;border-radius:24px;background:rgba(255,255,255,.18);border:3px solid rgba(255,255,255,.25);display:grid;place-items:center;font-size:34px;box-shadow:0 6px 0 rgba(0,0,0,.12)}
+    .gameName{margin-top:10px;font-family:"Baloo 2",sans-serif;font-size:34px;line-height:.9;font-weight:800;color:#fffdf7}
     .gameDesc{margin-top:8px;font-size:14px;font-weight:800;color:rgba(255,255,255,.94);max-width:320px}
-    .rewardTag{
-      margin-top:14px;display:inline-flex;align-items:center;gap:6px;
-      padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.16);
-      border:2px solid rgba(255,255,255,.22);font-size:12px;font-weight:900
-    }
-    .gameGlow{
-      position:absolute;right:-20px;bottom:-20px;width:150px;height:150px;border-radius:50%;
-      background:radial-gradient(circle,rgba(255,255,255,.22),transparent 65%)
-    }
+    .rewardTag{margin-top:14px;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.22);font-size:12px;font-weight:900}
+    .gameGlow{position:absolute;right:-20px;bottom:-20px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.22),transparent 65%)}
 
-    .panel{
-      border-radius:28px;
-      padding:20px;
-      border:4px solid rgba(255,255,255,.15);
-      background:linear-gradient(180deg,#4b1792,#2a0c59);
-      box-shadow:var(--shadow-hard);
-    }
-    .panelTitle{
-      font-family:"Baloo 2",sans-serif;font-size:28px;line-height:1;font-weight:800
-    }
+    .panel{border-radius:28px;padding:20px;border:4px solid rgba(255,255,255,.15);background:linear-gradient(180deg,#4b1792,#2a0c59);box-shadow:var(--shadow-hard)}
+    .panelTitle{font-family:"Baloo 2",sans-serif;font-size:28px;line-height:1;font-weight:800}
     .panelText{margin-top:6px;font-size:13px;font-weight:700;color:#f1dcff}
 
-    .wheelWrap{
-      width:min(100%,360px);aspect-ratio:1;margin:18px auto 10px;position:relative
-    }
+    .wheelShowcase{display:grid;grid-template-columns:minmax(260px,380px) minmax(0,1fr);gap:16px;align-items:center;margin-top:18px}
+    .wheelMascotCard{padding:14px;border-radius:24px;background:rgba(255,255,255,.08);border:3px solid rgba(255,255,255,.10);display:grid;place-items:center;min-height:360px}
+    .wheelMascotCard img{width:100%;max-height:420px;object-fit:contain;display:block;filter:drop-shadow(0 18px 28px rgba(0,0,0,.22))}
+    .wheelWrap{width:min(100%,360px);aspect-ratio:1;margin:0 auto 10px;position:relative}
     #wheelCanvas{width:100%;height:100%;display:block}
-    .wheelPointer{
-      position:absolute;top:-12px;left:50%;transform:translateX(-50%);
-      font-size:30px;filter:drop-shadow(0 4px 0 rgba(0,0,0,.2))
-    }
-    .wheelCenter{
-      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-      width:82px;height:82px;border-radius:50%;
-      background:linear-gradient(180deg,#ffe876,#ffbb21);
-      color:#6b4200;font-size:30px;display:grid;place-items:center;
-      border:4px solid rgba(255,255,255,.32);
-      box-shadow:0 8px 0 #c88600;
-      z-index:2;
-    }
+    .wheelPointer{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:30px;filter:drop-shadow(0 4px 0 rgba(0,0,0,.2))}
+    .wheelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:82px;height:82px;border-radius:50%;background:linear-gradient(180deg,#ffe876,#ffbb21);color:#6b4200;font-size:30px;display:grid;place-items:center;border:4px solid rgba(255,255,255,.32);box-shadow:0 8px 0 #c88600;z-index:2}
     .wheelPrizes{display:grid;gap:8px;margin-top:12px}
-    .prizeRow{
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
-      padding:12px 14px;border-radius:18px;
-      background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.08)
-    }
+    .prizeRow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:18px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.08)}
     .prizeRow span{font-weight:900}
 
-    .selectionCards,.rewardGrid,.taskList,.marketList{
-      display:grid;margin-top:12px
-    }
+    .selectionCards,.rewardGrid,.taskList,.marketList,.missionMiniGrid{display:grid;margin-top:12px}
     .selectionCards{grid-template-columns:repeat(3,minmax(0,1fr))}
     .rewardGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .missionMiniGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
 
-    .taskCard,.marketCard,.rewardCard,.selectCard{
-      border-radius:24px;padding:14px;border:4px solid rgba(255,255,255,.16);box-shadow:var(--shadow-soft)
-    }
+    .taskCard,.marketCard,.rewardCard,.selectCard,.missionMini{border-radius:24px;padding:14px;border:4px solid rgba(255,255,255,.16);box-shadow:var(--shadow-soft)}
     .selectCard.lottery{background:linear-gradient(180deg,#ff79e9,#be49ff)}
     .selectCard.scratch{background:linear-gradient(180deg,#78e8ff,#1297ff)}
     .marketCard{background:linear-gradient(180deg,#7f6cff,#5132d9)}
     .rewardCard{background:linear-gradient(180deg,#ffd751,#ff9a17)}
-    .taskCard.pending{background:linear-gradient(180deg,#ffb25f,#ff7f2d);color:#4d2400}
-    .taskCard.done{background:linear-gradient(180deg,#5fef85,#14c548);color:#083016}
-
-    .selectCard{
-      cursor:pointer;
-      transition:.14s transform;
-      min-height:200px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
+    .taskCard.pending,.missionMini.pending{background:linear-gradient(180deg,#ffb25f,#ff7f2d);color:#4d2400}
+    .taskCard.done,.missionMini.done{background:linear-gradient(180deg,#5fef85,#14c548);color:#083016}
+    .missionMini{min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+    .selectCard{cursor:pointer;transition:.14s transform;min-height:200px;display:flex;flex-direction:column;justify-content:space-between}
     .selectCard:hover{transform:translateY(-3px)}
-
-    .cardTitle{
-      font-family:"Baloo 2",sans-serif;font-size:28px;line-height:.95;font-weight:800
-    }
+    .cardTitle{font-family:"Baloo 2",sans-serif;font-size:28px;line-height:.95;font-weight:800}
     .cardText{margin-top:4px;font-size:13px;font-weight:800;color:rgba(255,255,255,.94)}
-    .taskCard.pending .cardText{color:rgba(77,36,0,.9)}
-    .taskCard.done .cardText{color:rgba(7,48,22,.88)}
-    .cardBottom{
-      margin-top:14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .subPill{
-      display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;
-      background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.2);font-size:11px;font-weight:900
-    }
+    .taskCard.pending .cardText,.missionMini.pending .cardText{color:rgba(77,36,0,.9)}
+    .taskCard.done .cardText,.missionMini.done .cardText{color:rgba(7,48,22,.88)}
+    .cardBottom{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .subPill{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.2);font-size:11px;font-weight:900}
+    .taskClaim{border:none;cursor:pointer;font:inherit;padding:10px 14px;border-radius:16px;font-weight:900;border:3px solid rgba(255,255,255,.18);min-height:50px}
+    .taskClaim.pending{background:linear-gradient(180deg,#ffe76f,#ffbc1f);color:#5b3900;box-shadow:0 6px 0 #c88600}
+    .taskClaim.done{background:linear-gradient(180deg,#7cf99a,#1ad857);color:#093115;box-shadow:0 6px 0 #118436}
 
-    .taskClaim{
-      border:none;cursor:pointer;font:inherit;
-      padding:10px 14px;border-radius:16px;font-weight:900;
-      border:3px solid rgba(255,255,255,.18);
-      min-height:50px;
-    }
-    .taskClaim.pending{
-      background:linear-gradient(180deg,#ffe76f,#ffbc1f);
-      color:#5b3900;
-      box-shadow:0 6px 0 #c88600;
-    }
-    .taskClaim.done{
-      background:linear-gradient(180deg,#7cf99a,#1ad857);
-      color:#093115;
-      box-shadow:0 6px 0 #118436;
-    }
-
-    .lotteryActionsTop{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:10px;
-      margin-bottom:22px;
-      align-items:center;
-    }
-    .pickerGrid,.symbolGrid{
-      display:grid;
-      gap:10px;
-      margin-top:14px;
-    }
+    .lotteryActionsTop{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;margin-bottom:22px;align-items:center}
+    .pickerGrid,.symbolGrid{display:grid;gap:10px;margin-top:14px}
     .pickerGrid{grid-template-columns:repeat(7,1fr)}
     .symbolGrid{grid-template-columns:repeat(4,1fr)}
-    .pickBtn{
-      height:48px;border-radius:16px;border:none;
-      background:linear-gradient(180deg,#6f2bd8,#49188f);
-      color:#fff;font-weight:900;font-size:15px;
-      border:3px solid rgba(255,255,255,.12);
-      box-shadow:0 5px 0 rgba(33,6,69,.5);
-      cursor:pointer;
-    }
-    .pickBtn.sel{
-      background:linear-gradient(180deg,#ffe86e,#ffbc1f);
-      color:#5c3900;
-      box-shadow:0 5px 0 #c88600;
-    }
+    .pickBtn{height:48px;border-radius:16px;border:none;background:linear-gradient(180deg,#6f2bd8,#49188f);color:#fff;font-weight:900;font-size:15px;border:3px solid rgba(255,255,255,.12);box-shadow:0 5px 0 rgba(33,6,69,.5);cursor:pointer}
+    .pickBtn.sel{background:linear-gradient(180deg,#ffe86e,#ffbc1f);color:#5c3900;box-shadow:0 5px 0 #c88600}
 
-    .selectionWrap{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:14px;
-      margin-bottom:16px;
-      min-height:52px;
-      align-items:center;
-    }
-    .ball{
-      min-width:42px;height:42px;padding:0 12px;border-radius:999px;
-      display:grid;place-items:center;font-weight:900;
-      background:linear-gradient(180deg,#ffe86e,#ffbc1f);color:#5c3900;border:3px solid rgba(255,255,255,.25);box-shadow:0 5px 0 #c88600
-    }
-
+    .selectionWrap{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;margin-bottom:16px;min-height:52px;align-items:center}
+    .ball{min-width:42px;height:42px;padding:0 12px;border-radius:999px;display:grid;place-items:center;font-weight:900;background:linear-gradient(180deg,#ffe86e,#ffbc1f);color:#5c3900;border:3px solid rgba(255,255,255,.25);box-shadow:0 5px 0 #c88600}
     .hidden{display:none!important}
 
-    .scratchStage{
-      margin-top:14px;
-      border-radius:24px;
-      overflow:hidden;
-      position:relative;
-      background:linear-gradient(180deg,#210748,#13022f);
-      min-height:340px;
-      border:3px solid rgba(255,255,255,.12);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:18px;
-    }
-    .scratchMaskWrap{
-      position:relative;
-      width:100%;
-      max-width:360px;
-      aspect-ratio:1/1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .scratchUnder{
-      position:absolute;
-      inset:0;
-      display:grid;
-      place-items:center;
-    }
-    .scratchUnderGrid{
-      width:100%;
-      height:100%;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:10px;
-    }
-    .scratchCell{
-      border-radius:18px;
-      background:rgba(255,255,255,.08);
-      display:grid;place-items:center;
-      font-size:30px;
-      border:2px solid rgba(255,255,255,.08);
-    }
-    #scratchCanvas{
-      position:absolute;inset:0;
-      width:100%;height:100%;
-      touch-action:none;
-      border-radius:22px;
-    }
+    .scratchStage{margin-top:14px;border-radius:24px;overflow:hidden;position:relative;background:linear-gradient(180deg,#210748,#13022f);min-height:340px;border:3px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;padding:18px}
+    .scratchMaskWrap{position:relative;width:100%;max-width:360px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+    .scratchUnder{position:absolute;inset:0;display:grid;place-items:center}
+    .scratchUnderGrid{width:100%;height:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .scratchCell{border-radius:18px;background:rgba(255,255,255,.08);display:grid;place-items:center;font-size:30px;border:2px solid rgba(255,255,255,.08)}
+    #scratchCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;border-radius:22px}
 
     .choiceRow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-    .choiceBtn{
-      padding:14px 10px;border-radius:18px;border:none;font-weight:900;font-size:15px;cursor:pointer;
-      border:3px solid rgba(255,255,255,.22)
-    }
+    .choiceBtn{padding:14px 10px;border-radius:18px;border:none;font-weight:900;font-size:15px;cursor:pointer;border:3px solid rgba(255,255,255,.22)}
     .choiceBtn.yes{background:linear-gradient(180deg,#77f58f,#1dcf52);color:#093115;box-shadow:0 6px 0 #108734}
     .choiceBtn.no{background:linear-gradient(180deg,#ff8ea0,#ff5771);color:#4d0b16;box-shadow:0 6px 0 #be2843}
     .choiceBtn.sel{outline:4px solid rgba(255,255,255,.32)}
 
     .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-    .chip{
-      padding:10px 12px;border-radius:999px;background:linear-gradient(180deg,#6d2bd3,#48168f);
-      color:#fff;font-weight:900;border:3px solid rgba(255,255,255,.14);box-shadow:0 5px 0 rgba(31,6,66,.5);cursor:pointer
-    }
-    .chip.sel{
-      background:linear-gradient(180deg,#ffe76e,#ffbc1f);
-      color:#5b3900;box-shadow:0 5px 0 #c88600
-    }
+    .chip{padding:10px 12px;border-radius:999px;background:linear-gradient(180deg,#6d2bd3,#48168f);color:#fff;font-weight:900;border:3px solid rgba(255,255,255,.14);box-shadow:0 5px 0 rgba(31,6,66,.5);cursor:pointer}
+    .chip.sel{background:linear-gradient(180deg,#ffe76e,#ffbc1f);color:#5b3900;box-shadow:0 5px 0 #c88600}
 
-    .rewardCard{
-      min-height:240px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      text-align:left;
-    }
-    .rewardVisual{
-      height:110px;border-radius:20px;display:grid;place-items:center;
-      font-size:52px;background:rgba(255,255,255,.18);
-      border:2px solid rgba(255,255,255,.18);margin-bottom:12px;
-    }
+    .rewardCard{min-height:240px;display:flex;flex-direction:column;justify-content:space-between;text-align:left}
+    .rewardVisual{height:110px;border-radius:20px;display:grid;place-items:center;font-size:52px;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.18);margin-bottom:12px}
+    .shopHero{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:10px;padding:16px;border-radius:24px;border:4px solid rgba(255,255,255,.16);background:linear-gradient(180deg,#ffd84b,#ff9b16);box-shadow:var(--shadow-hard);color:#5c3900;overflow:hidden}
+    .shopBig{font-family:"Baloo 2",sans-serif;font-size:42px;line-height:1;font-weight:800}
+    .shopMascot{width:min(42%,320px);max-height:320px;object-fit:contain;display:block;filter:drop-shadow(0 18px 24px rgba(0,0,0,.18))}
 
-    .shopHero{
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
-      margin-top:10px;padding:16px;border-radius:24px;border:4px solid rgba(255,255,255,.16);
-      background:linear-gradient(180deg,#ffd84b,#ff9b16);box-shadow:var(--shadow-hard);color:#5c3900
-    }
-    .shopBig{
-      font-family:"Baloo 2",sans-serif;font-size:42px;line-height:1;font-weight:800
-    }
+    .subSwitch{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;margin-bottom:14px}
+    .subSwitchBtn{min-height:50px;padding:12px 18px;border-radius:18px;background:linear-gradient(180deg,#6d2bd3,#48168f);color:#fff;font-weight:900;border:3px solid rgba(255,255,255,.14);box-shadow:0 5px 0 rgba(31,6,66,.5)}
+    .subSwitchBtn.active{background:linear-gradient(180deg,#ffe76d,#ffbc1f);color:#5b3900;box-shadow:0 5px 0 #c88600}
 
-    .historyList{
-      display:grid;
-      gap:10px;
-      margin-top:14px;
-    }
-    .historyItem{
-      display:flex;align-items:center;justify-content:space-between;gap:10px;
-      padding:12px;border-radius:18px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.08)
-    }
+    .historyList{display:grid;gap:10px;margin-top:14px}
+    .historyItem{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border-radius:18px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.08)}
 
-    .miniPanel{
-      border-radius:24px;
-      padding:16px;
-      border:3px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.08);
-      box-shadow:var(--shadow-soft);
-      backdrop-filter:blur(8px);
-    }
-    .miniPanel h4{
-      font-family:"Baloo 2",sans-serif;
-      font-size:26px; line-height:1;
-    }
-    .miniPanel p{
-      margin-top:6px;font-size:12px;font-weight:800;color:#f1dcff;
-    }
+    .miniPanel{border-radius:24px;padding:16px;border:3px solid rgba(255,255,255,.12);background:rgba(255,255,255,.08);box-shadow:var(--shadow-soft);backdrop-filter:blur(8px)}
+    .miniPanel h4{font-family:"Baloo 2",sans-serif;font-size:26px; line-height:1}
+    .miniPanel p{margin-top:6px;font-size:12px;font-weight:800;color:#f1dcff}
     .miniList{display:grid;gap:10px;margin-top:12px}
-    .miniItem{
-      padding:12px;border-radius:18px;
-      background:rgba(255,255,255,.08);
-      border:2px solid rgba(255,255,255,.08);
-      display:flex;justify-content:space-between;align-items:center;gap:10px;
-    }
+    .miniItem{padding:12px;border-radius:18px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;gap:10px}
 
     .mobileTop{display:none}
-    .mobileBottom{
-      display:none;
-      position:fixed;
-      left:0;
-      right:0;
-      bottom:0;
-      z-index:40;
-      padding:10px 12px calc(10px + var(--safe-bottom));
-      background:transparent;
-      backdrop-filter:none;
-    }
-    .mobileBottomInner{
-      max-width:720px;margin:0 auto;
-      height:var(--tabh);
-      border-radius:28px;
-      background:linear-gradient(180deg,#5d24b8,#35106f);
-      border:4px solid rgba(255,255,255,.14);
-      box-shadow:var(--shadow-hard);
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      padding:8px; gap:8px;
-    }
-    .tabBtn{
-      border:none;background:transparent;color:#e7d6ff;border-radius:20px;
-      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-      font-size:10px;font-weight:900;cursor:pointer
-    }
+    .mobileBottom{display:none;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px calc(10px + var(--safe-bottom));background:transparent;backdrop-filter:none}
+    .mobileBottomInner{max-width:720px;margin:0 auto;height:var(--tabh);border-radius:28px;background:linear-gradient(180deg,#5d24b8,#35106f);border:4px solid rgba(255,255,255,.14);box-shadow:var(--shadow-hard);display:grid;grid-template-columns:repeat(5,1fr);padding:8px; gap:8px}
+    .tabBtn{border:none;background:transparent;color:#e7d6ff;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10px;font-weight:900;cursor:pointer}
     .tabBtn .i{font-size:22px;line-height:1}
-    .tabBtn.active{
-      background:linear-gradient(180deg,#ffe76d,#ffbc1f);
-      color:#5b3900;
-      box-shadow:0 5px 0 #c88600;
-    }
+    .tabBtn.active{background:linear-gradient(180deg,#ffe76d,#ffbc1f);color:#5b3900;box-shadow:0 5px 0 #c88600}
 
-    .floatingSpin{
-      position:fixed;
-      right:14px;
-      bottom:92px;
-      z-index:39;
-      width:72px;
-      height:72px;
-      border-radius:50%;
-      border:none;
-      cursor:pointer;
-      background:linear-gradient(180deg,#ff72e5,#c946ff);
-      color:#fff;
-      font-size:24px;
-      font-weight:900;
-      border:4px solid rgba(255,255,255,.24);
-      box-shadow:0 8px 0 #8e24cf,0 18px 22px rgba(0,0,0,.22);
-      animation:bounceSpin 2.2s infinite;
-    }
+    .floatingSpin{position:fixed;right:14px;bottom:92px;z-index:39;width:72px;height:72px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(180deg,#ff72e5,#c946ff);color:#fff;font-size:24px;font-weight:900;border:4px solid rgba(255,255,255,.24);box-shadow:0 8px 0 #8e24cf,0 18px 22px rgba(0,0,0,.22);animation:bounceSpin 2.2s infinite}
     @keyframes bounceSpin{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
-    .overlay{
-      position:fixed;inset:0;background:rgba(10,2,24,.62);backdrop-filter:blur(8px);
-      display:none;align-items:center;justify-content:center;padding:18px;z-index:90
-    }
+    .overlay{position:fixed;inset:0;background:rgba(10,2,24,.62);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:18px;z-index:90}
     .overlay.open{display:flex}
-    .modal{
-      width:min(100%,460px);
-      border-radius:28px;
-      border:4px solid rgba(255,255,255,.16);
-      background:linear-gradient(180deg,#5c1fba,#2b0b59);
-      box-shadow:var(--shadow-hard);
-      padding:18px;
-      max-height:85vh;
-      overflow:auto;
-    }
-    .modalTitle{
-      font-family:"Baloo 2",sans-serif;font-size:32px;line-height:1;font-weight:800
-    }
+    .modal{width:min(100%,460px);border-radius:28px;border:4px solid rgba(255,255,255,.16);background:linear-gradient(180deg,#5c1fba,#2b0b59);box-shadow:var(--shadow-hard);padding:18px;max-height:85vh;overflow:auto}
+    .modalTitle{font-family:"Baloo 2",sans-serif;font-size:32px;line-height:1;font-weight:800}
     .modalText{margin-top:8px;font-size:14px;font-weight:700;color:#f3ddff}
-    .modalBig{
-      margin:16px 0;font-family:"Baloo 2",sans-serif;font-size:42px;line-height:1;font-weight:800;color:#fff59b;text-align:center
-    }
+    .modalBig{margin:16px 0;font-family:"Baloo 2",sans-serif;font-size:42px;line-height:1;font-weight:800;color:#fff59b;text-align:center}
     .modalActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 
-    .toast{
-      position:fixed;left:50%;bottom:120px;transform:translateX(-50%) translateY(16px);
-      opacity:0;pointer-events:none;z-index:100;
-      background:linear-gradient(180deg,#ffe76f,#ffbc1f);color:#5b3900;
-      padding:12px 16px;border-radius:999px;font-weight:900;
-      box-shadow:0 6px 0 #c88600,0 14px 20px rgba(0,0,0,.18);
-      transition:.2s ease
-    }
+    .toast{position:fixed;left:50%;bottom:120px;transform:translateX(-50%) translateY(16px);opacity:0;pointer-events:none;z-index:100;background:linear-gradient(180deg,#ffe76f,#ffbc1f);color:#5b3900;padding:12px 16px;border-radius:999px;font-weight:900;box-shadow:0 6px 0 #c88600,0 14px 20px rgba(0,0,0,.18);transition:.2s ease}
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-    .input{
-      width:100%;padding:14px 16px;border-radius:18px;border:none;outline:none;
-      background:rgba(255,255,255,.1);border:3px solid rgba(255,255,255,.1);color:#fff;font:inherit;font-weight:700
-    }
+    .input{width:100%;padding:14px 16px;border-radius:18px;border:none;outline:none;background:rgba(255,255,255,.1);border:3px solid rgba(255,255,255,.1);color:#fff;font:inherit;font-weight:700}
     .field{margin-top:12px}
     .field label{display:block;margin-bottom:6px;font-size:11px;font-weight:900;color:#ffe6ff;text-transform:uppercase;letter-spacing:.6px}
 
-    @media (max-width:1400px){
-      .layout{grid-template-columns:240px minmax(0,1fr) 300px}
-    }
+    .mobileTopStats{display:none;align-items:center;gap:8px;margin-left:auto}
+    .miniCurrency{position:relative;min-width:88px;height:44px;border-radius:14px;padding:6px 9px;display:flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,.22);box-shadow:var(--shadow-soft);cursor:pointer;overflow:visible}
+    .miniCurrency.spid{background:linear-gradient(180deg,#ffd44f,#ff9c12);color:#5c3900}
+    .miniCurrency.points{background:linear-gradient(180deg,#76e7ff,#1195ff);color:#09375f}
+    .miniCurrency strong{font-size:12px;line-height:1;font-weight:900}
+    .miniCurrency .currencyIcon{width:26px;height:26px;min-width:26px;border-width:1.5px}
+    .miniCurrency .infoBubble{left:auto;right:0;width:220px;top:calc(100% + 6px)}
+    .miniCurrency.showBubble .infoBubble{opacity:1;transform:none;pointer-events:auto}
 
+    @media (max-width:1400px){.layout{grid-template-columns:240px minmax(0,1fr) 300px}}
     @media (max-width:1180px){
       .layout{grid-template-columns:230px minmax(0,1fr)}
       .rightbar{display:none}
-      .heroInner{grid-template-columns:minmax(0,1fr) 160px}
+      .heroInner{grid-template-columns:minmax(0,1fr) 320px}
       .bigCards{grid-template-columns:repeat(2,minmax(0,1fr))}
       .selectionCards{grid-template-columns:repeat(2,minmax(0,1fr))}
       .rewardGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .missionMiniGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .screenBanner{grid-template-columns:minmax(0,1fr) 280px}
+      .wheelShowcase{grid-template-columns:1fr}
+      .wheelMascotCard{min-height:260px}
+      .wheelMascotCard img{max-height:300px}
     }
-
     @media (max-width:820px){
       .layout{display:block}
       .sidebar{display:none}
-      .main{
-        padding:12px 12px calc(var(--tabh) + var(--safe-bottom) + 26px);
-      }
-      .mobileTop{
-        display:flex;
-        position:sticky;top:0;z-index:35;
-        padding:12px 12px 8px;
-        background:linear-gradient(180deg,rgba(47,8,114,.95),rgba(47,8,114,.82),rgba(47,8,114,.35),transparent);
-        backdrop-filter:blur(8px);
-        margin:-12px -12px 10px;
-      }
-      .mobileTopInner{
-        width:100%;
-        display:flex;align-items:center;justify-content:space-between;gap:10px;
-        padding:0 12px;
-      }
+      .main{padding:12px 12px calc(var(--tabh) + var(--safe-bottom) + 26px)}
+      .mobileTop{display:flex;position:sticky;top:0;z-index:35;padding:12px 12px 8px;background:linear-gradient(180deg,rgba(47,8,114,.95),rgba(47,8,114,.82),rgba(47,8,114,.35),transparent);backdrop-filter:blur(8px);margin:-12px -12px 10px}
+      .mobileTopInner{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 12px}
+      .mobileTopStats{display:flex}
+      .mobileTop .brandTitle,.mobileTop .brandSub{display:none}
       .mobileBottom{display:block}
       .topDesktop{display:none}
-      .hero{padding:18px 16px 18px}
+      .hero{padding:18px 16px 18px;min-height:unset}
       .heroInner{grid-template-columns:1fr}
-      .heroMascot{justify-self:start;width:124px;height:150px;margin-top:6px}
-      .heroTitle{font-size:42px;max-width:100%}
-      .heroText{font-size:14px}
+      .heroMascotWrap{min-height:unset}
+      .heroMascotImg{width:min(100%,420px);max-height:420px}
       .giftStrip{grid-template-columns:1fr}
       .bigCards{grid-template-columns:1fr}
       .pickerGrid{grid-template-columns:repeat(5,1fr)}
       .selectionCards{grid-template-columns:1fr}
       .rewardGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .missionMiniGrid{grid-template-columns:1fr}
       .playerDropdown{right:-6px;width:min(92vw,300px)}
-      .floatingSpin{
-        right:10px;
-        bottom:calc(var(--tabh) + var(--safe-bottom) + 34px);
-        width:68px;
-        height:68px;
-        font-size:22px;
-      }
+      .floatingSpin{right:10px;bottom:calc(var(--tabh) + var(--safe-bottom) + 34px);width:68px;height:68px;font-size:22px}
       .scratchStage{min-height:300px;padding:14px}
       .scratchMaskWrap{max-width:320px}
       .panel{padding:16px}
       .sectionHead{margin:16px 2px 12px}
       .cardBottom{gap:10px}
       .ctaRow{gap:10px}
+      .resource:hover .infoBubble{opacity:0;transform:translateY(6px)}
+      .screenBanner{grid-template-columns:1fr}
+      .screenBanner .screenBannerImg{justify-self:center;max-height:240px}
+      .shopHero{flex-direction:column;align-items:flex-start}
+      .shopMascot{width:min(100%,240px)}
     }
-
     @media (max-width:520px){
       .pickerGrid{grid-template-columns:repeat(4,1fr)}
       .symbolGrid{grid-template-columns:repeat(4,1fr)}
@@ -948,29 +410,18 @@
       .rewardGrid{grid-template-columns:1fr}
       .scratchMaskWrap{max-width:280px}
       .scratchCell{font-size:26px}
-
       .topActions{gap:8px}
-      .topPill{
-        padding:11px 12px;
-        font-size:12px;
-      }
-      .btn3d,
-      .btnGhost{
-        width:100%;
-      }
-      .cardBottom{
-        flex-direction:column;
-        align-items:stretch;
-      }
-      .taskClaim{
-        width:100%;
-      }
-      .lotteryActionsTop{
-        margin-bottom:18px;
-      }
-      .btnDangerSoft{
-        width:100%;
-      }
+      .topPill{padding:11px 12px;font-size:12px}
+      .btn3d,.btnGhost{width:100%}
+      .cardBottom{flex-direction:column;align-items:stretch}
+      .taskClaim{width:100%}
+      .lotteryActionsTop{margin-bottom:18px}
+      .btnDangerSoft{width:100%}
+      .mobileTopInner{gap:8px;padding:0 8px}
+      .mobileTopStats{gap:6px}
+      .miniCurrency{min-width:68px;padding:6px 8px}
+      .miniCurrency strong{font-size:11px}
+      .miniCurrency .infoBubble{width:190px}
     }
   </style>
 </head>
@@ -982,7 +433,7 @@
   <div class="layout">
     <aside class="sidebar">
       <div class="logoWrap">
-        <div class="logoBadge">★</div>
+        <div class="logoBadge"><img src="/assets/logo-premium.png" alt="Logo SPID"></div>
         <div>
           <div class="brandTitle">SPIDWIN</div>
           <div class="brandSub">Arcade Rewards</div>
@@ -990,28 +441,32 @@
       </div>
 
       <div class="resources">
-        <div class="resource gold">
+        <div class="resource gold" data-resource="spid">
           <div class="resourceTop">
             <div class="resourceLabel">SPID</div>
-            <div>🪙</div>
+            <div class="currencyIcon spid"><img src="/assets/spid.png" alt="SPID"></div>
           </div>
           <div class="resourceValue" id="spidSide">1250</div>
+          <div class="infoBubble"><strong>SPID</strong><p>La monnaie principale du jeu. Tu la gagnes sur les mini-jeux, les missions et les rewards spéciaux.</p></div>
         </div>
-        <div class="resource gem">
+
+        <div class="resource gem" data-resource="points">
           <div class="resourceTop">
-            <div class="resourceLabel">Streak</div>
-            <div>⚡</div>
+            <div class="resourceLabel">Points</div>
+            <div class="currencyIcon point"><img src="/assets/coin.png" alt="Pièce"></div>
           </div>
-          <div class="resourceValue" id="streakSide">5</div>
+          <div class="resourceValue" id="pointsSide">340</div>
+          <div class="infoBubble"><strong>Points</strong><p>Les points suivent ta progression et ton activité. Ils servent à débloquer du prestige, du classement et des boosts.</p></div>
         </div>
       </div>
 
       <div class="nav">
-        <button class="navBtn active" data-nav="home"><span class="navIcon">🏠</span>Accueil</button>
-        <button class="navBtn" data-nav="wheel"><span class="navIcon">🎡</span>SPIDWHEEL</button>
-        <button class="navBtn" data-nav="lottery"><span class="navIcon">🎰</span>Loterie</button>
-        <button class="navBtn" data-nav="scratch"><span class="navIcon">🪄</span>Grattage</button>
-        <button class="navBtn" data-nav="market"><span class="navIcon">📈</span>Prédictions</button>
+        <button class="navBtn active" data-nav="home"><span class="navIcon"><span class="arcadeIcon reward">⌂</span></span>Accueil</button>
+        <button class="navBtn" data-nav="wheel"><span class="navIcon"><span class="arcadeIcon wheel">✦</span></span>SPIDWHEEL</button>
+        <button class="navBtn" data-nav="lottery"><span class="navIcon"><span class="arcadeIcon lottery">◈</span></span>Loterie</button>
+        <button class="navBtn" data-nav="scratch"><span class="navIcon"><span class="arcadeIcon scratch">✷</span></span>Grattage</button>
+        <button class="navBtn" data-nav="market"><span class="navIcon"><span class="arcadeIcon market">↗</span></span>Prédictions</button>
+        <button class="navBtn" data-nav="rewards"><span class="navIcon"><span class="arcadeIcon reward">🎁</span></span>Reward / Missions</button>
       </div>
 
       <div class="sideFooter">
@@ -1024,27 +479,34 @@
       <div class="mobileTop">
         <div class="mobileTopInner">
           <div class="logoWrap">
-            <div class="logoBadge" style="width:44px;height:44px;font-size:20px">★</div>
+            <div class="logoBadge" style="width:44px;height:44px;font-size:20px"><img src="/assets/logo-premium.png" alt="Logo SPID"></div>
             <div>
               <div class="brandTitle" style="font-size:24px">SPIDWIN</div>
               <div class="brandSub">Arcade Rewards</div>
             </div>
           </div>
 
-          <div class="topActions" style="gap:8px">
-            <button class="topPill" data-go="rewards" style="padding:12px 14px;font-size:13px">🎁 Reward</button>
+          <div class="mobileTopStats">
+            <div class="miniCurrency spid" data-mobile-resource="spid">
+              <div class="currencyIcon spid"><img src="/assets/spid.png" alt="SPID"></div>
+              <strong id="spidMobile">1250</strong>
+              <div class="infoBubble"><strong>SPID</strong><p>La monnaie principale du jeu. Tu la gagnes en jouant et tu la dépenses dans le reward shop.</p></div>
+            </div>
 
+            <div class="miniCurrency points" data-mobile-resource="points">
+              <div class="currencyIcon point"><img src="/assets/coin.png" alt="Pièce"></div>
+              <strong id="pointsMobile">340</strong>
+              <div class="infoBubble"><strong>Points</strong><p>Les points mesurent ta progression. Ils montent avec tes actions, ton activité et tes missions.</p></div>
+            </div>
+          </div>
+
+          <div class="topActions" style="gap:8px">
             <div class="playerMenuWrap">
-              <button class="playerIconBtn" id="playerIconMobile">
-                <div class="avatar" id="avatarMobile" style="width:40px;height:40px;font-size:18px">J</div>
-              </button>
+              <button class="playerIconBtn" id="playerIconMobile"><div class="avatar" id="avatarMobile" style="width:40px;height:40px;font-size:18px">J</div></button>
               <div class="playerDropdown" id="playerDropdownMobile">
                 <div class="playerDropdownHeader">
                   <div class="avatar" id="avatarDropMobile">J</div>
-                  <div>
-                    <div style="font-weight:900" id="dropNameMobile">Joueur_7842</div>
-                    <div style="font-size:11px;color:#ffe47f;font-weight:800">Compte joueur</div>
-                  </div>
+                  <div><div style="font-weight:900" id="dropNameMobile">Joueur_7842</div><div style="font-size:11px;color:#ffe47f;font-weight:800">Compte joueur</div></div>
                 </div>
                 <button class="dropBtn" data-drop-action="account">👤 Mon compte</button>
                 <button class="dropBtn" data-drop-action="edit">✏️ Modifier le compte</button>
@@ -1057,20 +519,13 @@
 
       <div class="topDesktop">
         <div class="topActions">
-          <button class="topPill" data-go="tasks">⚡ Missions</button>
           <button class="topPill" data-go="rewards">🎁 Reward</button>
-
           <div class="playerMenuWrap">
-            <button class="playerIconBtn" id="playerIconDesktop">
-              <div class="avatar" id="avatarTopDesktop" style="width:40px;height:40px;font-size:18px">J</div>
-            </button>
+            <button class="playerIconBtn" id="playerIconDesktop"><div class="avatar" id="avatarTopDesktop" style="width:40px;height:40px;font-size:18px">J</div></button>
             <div class="playerDropdown" id="playerDropdownDesktop">
               <div class="playerDropdownHeader">
                 <div class="avatar" id="avatarDropDesktop">J</div>
-                <div>
-                  <div style="font-weight:900" id="dropNameDesktop">Joueur_7842</div>
-                  <div style="font-size:11px;color:#ffe47f;font-weight:800">Compte joueur</div>
-                </div>
+                <div><div style="font-weight:900" id="dropNameDesktop">Joueur_7842</div><div style="font-size:11px;color:#ffe47f;font-weight:800">Compte joueur</div></div>
               </div>
               <button class="dropBtn" data-drop-action="account">👤 Mon compte</button>
               <button class="dropBtn" data-drop-action="edit">✏️ Modifier le compte</button>
@@ -1086,157 +541,93 @@
             <div>
               <div class="pill">🔥 Saison live</div>
               <div class="heroTitle">Joue.<br><span>Gagne.</span><br>Reviens.</div>
-              <div class="heroText">
-                Une expérience plus fun, plus rapide, plus arcade.
-              </div>
+              <div class="heroText">Une expérience plus fun, plus rapide, plus arcade.</div>
               <div class="ctaRow">
-                <button class="btn3d" data-go="wheel">🎡 SPIDWHEEL</button>
-                <button class="btnGhost" data-go="lottery">🎰 Loterie</button>
+                <button class="btn3d" data-go="wheel">✦ SPIDWHEEL</button>
+                <button class="btnGhost" data-go="lottery">◈ Loterie</button>
               </div>
             </div>
-            <div class="heroMascot"></div>
+            <div class="heroMascotWrap">
+              <img class="heroMascotImg" src="/assets/dog-home-coins.png" alt="Mascotte avec pièces">
+            </div>
           </div>
         </div>
 
-        <div class="sectionHead">
-          <div class="sectionTitle">Top cadeaux du jour</div>
-          <div class="sectionSub">Plus léger, plus clean</div>
-        </div>
-
+        <div class="sectionHead"><div class="sectionTitle">Top cadeaux du jour</div><div class="sectionSub">Plus léger, plus clean</div></div>
         <div class="giftStrip">
-          <div class="giftMini">
-            <div class="giftMiniTop"><span>🎧</span><strong>4200</strong></div>
-            <div class="giftMiniTitle">AirPods</div>
-            <div class="giftMiniText">Cadeau premium</div>
-          </div>
-          <div class="giftMini">
-            <div class="giftMiniTop"><span>🎮</span><strong>2600</strong></div>
-            <div class="giftMiniTitle">Manette PS5</div>
-            <div class="giftMiniText">Gaming reward</div>
-          </div>
-          <div class="giftMini">
-            <div class="giftMiniTop"><span>🎟️</span><strong>1800</strong></div>
-            <div class="giftMiniTitle">Bon d’achat</div>
-            <div class="giftMiniText">Reward rapide</div>
-          </div>
+          <div class="giftMini"><div class="giftMiniTop"><span>🎧</span><strong>4200</strong></div><div class="giftMiniTitle">AirPods</div><div class="giftMiniText">Cadeau premium</div></div>
+          <div class="giftMini"><div class="giftMiniTop"><span>🎮</span><strong>2600</strong></div><div class="giftMiniTitle">Manette PS5</div><div class="giftMiniText">Gaming reward</div></div>
+          <div class="giftMini"><div class="giftMiniTop"><span>🎟️</span><strong>1800</strong></div><div class="giftMiniTitle">Bon d’achat</div><div class="giftMiniText">Reward rapide</div></div>
         </div>
 
-        <div class="sectionHead">
-          <div class="sectionTitle">Jouer</div>
-          <div class="sectionSub">Choisis un mode</div>
-        </div>
-
+        <div class="sectionHead"><div class="sectionTitle">Jouer</div><div class="sectionSub">Choisis un mode</div></div>
         <div class="bigCards">
-          <div class="gameCard yellow" data-go="wheel">
-            <div class="gameCardHead">
-              <div>
-                <div class="pill">🎁 Quotidien</div>
-                <div class="gameName">SPIDWHEEL</div>
-                <div class="gameDesc">Spin gratuit ou spin acheté pour tenter un gros gain.</div>
-                <div class="rewardTag">⚡ 1 tour dispo</div>
-              </div>
-              <div class="gameEmoji">🎡</div>
-            </div>
-            <div class="gameGlow"></div>
-          </div>
-
-          <div class="gameCard pink" data-go="lottery">
-            <div class="gameCardHead">
-              <div>
-                <div class="pill">🔥 Jackpot</div>
-                <div class="gameName">Loterie<br>Live</div>
-                <div class="gameDesc">Choisis ta loterie puis construis ta grille.</div>
-                <div class="rewardTag">💥 Jusqu’à 1000 SPID</div>
-              </div>
-              <div class="gameEmoji">🎰</div>
-            </div>
-            <div class="gameGlow"></div>
-          </div>
-
-          <div class="gameCard blue" data-go="scratch">
-            <div class="gameCardHead">
-              <div>
-                <div class="pill">💎 Instant</div>
-                <div class="gameName">Grattage<br>Neo</div>
-                <div class="gameDesc">Choisis ton ticket puis gratte pour révéler les symboles.</div>
-                <div class="rewardTag">🎟️ Ticket rapide</div>
-              </div>
-              <div class="gameEmoji">🪄</div>
-            </div>
-            <div class="gameGlow"></div>
-          </div>
-
-          <div class="gameCard green" data-go="market">
-            <div class="gameCardHead">
-              <div>
-                <div class="pill">⚔️ Duel</div>
-                <div class="gameName">Prédictions<br>Clash</div>
-                <div class="gameDesc">Vote oui ou non et enchaîne les bons picks.</div>
-                <div class="rewardTag">👑 Mode compétitif</div>
-              </div>
-              <div class="gameEmoji">📈</div>
-            </div>
-            <div class="gameGlow"></div>
-          </div>
+          <div class="gameCard yellow" data-go="wheel"><div class="gameCardHead"><div><div class="pill">✦ Quotidien</div><div class="gameName">SPIDWHEEL</div><div class="gameDesc">Spin gratuit ou spin acheté pour tenter un gros gain.</div><div class="rewardTag">⚡ 1 tour dispo</div></div><div class="gameEmoji">✦</div></div><div class="gameGlow"></div></div>
+          <div class="gameCard pink" data-go="lottery"><div class="gameCardHead"><div><div class="pill">◈ Jackpot</div><div class="gameName">Loterie<br>Live</div><div class="gameDesc">Choisis ta loterie puis construis ta grille.</div><div class="rewardTag">💥 Jusqu’à 1000 SPID</div></div><div class="gameEmoji">◈</div></div><div class="gameGlow"></div></div>
+          <div class="gameCard blue" data-go="scratch"><div class="gameCardHead"><div><div class="pill">✷ Instant</div><div class="gameName">Grattage<br>Neo</div><div class="gameDesc">Choisis ton ticket puis gratte pour révéler les symboles.</div><div class="rewardTag">🎟️ Ticket rapide</div></div><div class="gameEmoji">✷</div></div><div class="gameGlow"></div></div>
+          <div class="gameCard green" data-go="market"><div class="gameCardHead"><div><div class="pill">↗ Duel</div><div class="gameName">Prédictions<br>Clash</div><div class="gameDesc">Vote oui ou non et enchaîne les bons picks.</div><div class="rewardTag">👑 Mode compétitif</div></div><div class="gameEmoji">↗</div></div><div class="gameGlow"></div></div>
         </div>
+
+        <div class="sectionHead"><div class="sectionTitle">Missions du moment</div><div class="sectionSub">Quelques missions rapides</div></div>
+        <div class="missionMiniGrid" id="homeMissionGrid"></div>
+        <div class="ctaRow"><button class="btnGhost" id="moreMissionsBtn">⚡ Voir plus de missions</button></div>
       </section>
 
       <section class="screen" id="screen-wheel">
-        <div class="sectionHead">
-          <div class="sectionTitle">SPIDWHEEL</div>
-          <div class="sectionSub">Gratuit ou 250 SPID</div>
+        <div class="sectionHead"><div class="sectionTitle">SPIDWHEEL</div><div class="sectionSub">Surtout des points, une case SPID rare</div></div>
+        <div class="screenBanner">
+          <div>
+            <div class="pill">✦ Spin star</div>
+            <h3>Tourne la roue et vise le gros gain</h3>
+            <p>La mascotte pousse la roue avec toi. Tout est plus visible et plus fort sur cette section.</p>
+          </div>
+          <img class="screenBannerImg" src="/assets/dog-wheel.png" alt="Mascotte avec roue">
         </div>
 
         <div class="panel">
           <div class="panelTitle">Tourne et chope ton loot</div>
-          <div class="panelText">Tu as 1 spin gratuit quotidien. Tu peux aussi acheter un tour supplémentaire.</div>
-
-          <div class="wheelWrap">
-            <div class="wheelPointer">▼</div>
-            <canvas id="wheelCanvas" width="600" height="600"></canvas>
-            <div class="wheelCenter">★</div>
+          <div class="panelText">La roue donne surtout des points. Une case rare peut donner quelques SPID. Tu as 1 spin gratuit quotidien.</div>
+          <div class="wheelShowcase">
+            <div class="wheelMascotCard"><img src="/assets/dog-wheel.png" alt="Mascotte roue SPIDWIN"></div>
+            <div>
+              <div class="wheelWrap">
+                <div class="wheelPointer">▼</div>
+                <canvas id="wheelCanvas" width="600" height="600"></canvas>
+                <div class="wheelCenter">★</div>
+              </div>
+              <div class="ctaRow">
+                <button class="btn3d" style="flex:1" id="spinBtn">✦ Spin gratuit</button>
+                <button class="btnGhost" style="flex:1" id="buySpinBtn">🪙 Acheter 1 tour · 250</button>
+              </div>
+            </div>
           </div>
-
-          <div class="ctaRow">
-            <button class="btn3d" style="flex:1" id="spinBtn">🎡 Spin gratuit</button>
-            <button class="btnGhost" style="flex:1" id="buySpinBtn">🪙 Acheter 1 tour · 250</button>
-          </div>
-
           <div class="wheelPrizes" id="wheelPrizeList"></div>
         </div>
       </section>
 
       <section class="screen" id="screen-lottery">
-        <div id="lotterySelectView">
-          <div class="sectionHead">
-            <div class="sectionTitle">Loterie Live</div>
-            <div class="sectionSub">Choisis ta loterie</div>
+        <div class="sectionHead"><div class="sectionTitle">Loterie Live</div><div class="sectionSub">Choisis ta loterie</div></div>
+        <div class="screenBanner">
+          <div>
+            <div class="pill">🎟️ Tirage 20h</div>
+            <h3>Enregistre ton ticket et attends le tirage</h3>
+            <p>La loterie ne paie plus tout de suite : ton ticket est enregistré pour le tirage au sort de 20h.</p>
           </div>
+          <img class="screenBannerImg" src="/assets/dog-lottery-cards.png" alt="Mascotte loterie">
+        </div>
 
+        <div id="lotterySelectView">
           <div class="selectionCards" id="lotterySelectionCards"></div>
         </div>
 
         <div id="lotteryPlayView" class="hidden">
-          <div class="sectionHead">
-            <div class="sectionTitle" id="lotteryPlayTitle">Méga Fortune</div>
-            <div class="sectionSub">Construis ta grille</div>
-          </div>
-
+          <div class="sectionHead"><div class="sectionTitle" id="lotteryPlayTitle">Méga Fortune</div><div class="sectionSub">Construis ta grille</div></div>
           <div class="panel">
-            <div class="ctaRow" style="margin-top:0;margin-bottom:14px">
-              <button class="btnGhost" id="backToLotterySelection">← Retour aux loteries</button>
-            </div>
-
+            <div class="ctaRow" style="margin-top:0;margin-bottom:14px"><button class="btnGhost" id="backToLotterySelection">← Retour aux loteries</button></div>
             <div class="panelTitle">4 numéros + 2 symboles</div>
-            <div class="panelText">Choisis tes numéros ou lance un Quick Pick.</div>
-
+            <div class="panelText">Choisis tes numéros ou lance un Quick Pick. Le ticket sera enregistré pour le tirage de 20h.</div>
             <div class="selectionWrap" id="selectionWrap"></div>
-
-            <div class="lotteryActionsTop">
-              <button class="btnGhost" id="quickPickBtn">🎲 Quick Pick</button>
-              <button class="btn3d" id="playLotteryBtn">🎟️ Valider</button>
-            </div>
-
+            <div class="lotteryActionsTop"><button class="btnGhost" id="quickPickBtn">🎲 Quick Pick</button><button class="btn3d" id="playLotteryBtn">🎟️ Enregistrer le ticket</button></div>
             <div class="pickerGrid" id="numGrid"></div>
             <div class="symbolGrid" id="symbolGrid"></div>
           </div>
@@ -1245,95 +636,68 @@
 
       <section class="screen" id="screen-scratch">
         <div id="scratchSelectView">
-          <div class="sectionHead">
-            <div class="sectionTitle">Grattage Neo</div>
-            <div class="sectionSub">Choisis ton ticket</div>
-          </div>
-
+          <div class="sectionHead"><div class="sectionTitle">Grattage Neo</div><div class="sectionSub">Choisis ton ticket</div></div>
           <div class="selectionCards" id="scratchSelectionCards"></div>
         </div>
-
         <div id="scratchPlayView" class="hidden">
-          <div class="sectionHead">
-            <div class="sectionTitle" id="scratchPlayTitle">Ticket Cosmic</div>
-            <div class="sectionSub">Gratte et révèle</div>
-          </div>
-
+          <div class="sectionHead"><div class="sectionTitle" id="scratchPlayTitle">Ticket Cosmic</div><div class="sectionSub">Gratte et révèle</div></div>
           <div class="panel">
-            <div class="ctaRow" style="margin-top:0;margin-bottom:14px">
-              <button class="btnGhost" id="backToScratchSelection">← Retour aux tickets</button>
-            </div>
-
+            <div class="ctaRow" style="margin-top:0;margin-bottom:14px"><button class="btnGhost" id="backToScratchSelection">← Retour aux tickets</button></div>
             <div class="panelTitle">Gratte la surface</div>
             <div class="panelText">3 symboles identiques = récompense.</div>
-
-            <div class="scratchStage">
-              <div class="scratchMaskWrap" id="scratchMaskWrap">
-                <div class="scratchUnder" id="scratchUnder"></div>
-                <canvas id="scratchCanvas"></canvas>
-              </div>
-            </div>
-
-            <div class="ctaRow">
-              <button class="btnGhost" id="resetScratchBtn">🔁 Nouveau ticket</button>
-              <button class="btn3d" id="revealScratchBtn">✨ Tout révéler</button>
-            </div>
+            <div class="scratchStage"><div class="scratchMaskWrap" id="scratchMaskWrap"><div class="scratchUnder" id="scratchUnder"></div><canvas id="scratchCanvas"></canvas></div></div>
+            <div class="ctaRow"><button class="btnGhost" id="resetScratchBtn">🔁 Nouveau ticket</button><button class="btn3d" id="revealScratchBtn">✨ Tout révéler</button></div>
           </div>
         </div>
       </section>
 
       <section class="screen" id="screen-market">
-        <div class="sectionHead">
-          <div class="sectionTitle">Prédictions Clash</div>
-          <div class="sectionSub">Oui ou non</div>
+        <div class="sectionHead"><div class="sectionTitle">Prédictions Clash</div><div class="sectionSub">Oui ou non</div></div>
+        <div class="screenBanner">
+          <div>
+            <div class="pill">⚽ Prediction</div>
+            <h3>Choisis ton camp et marque des points</h3>
+            <p>La prédiction rapporte maintenant des points. La mascotte score et la mascotte ballon sont visibles ensemble.</p>
+          </div>
+          <div class="predictionDuo">
+            <img src="/assets/dog-prediction-score.png" alt="Mascotte avec score">
+            <img src="/assets/dog-prediction-ball.png" alt="Mascotte prediction ballon">
+          </div>
         </div>
-
         <div class="marketList" id="marketList"></div>
       </section>
 
-      <section class="screen" id="screen-tasks">
-        <div class="sectionHead">
-          <div class="sectionTitle">Missions</div>
-          <div class="sectionSub">Couleurs mieux différenciées</div>
-        </div>
-
-        <div class="taskList" id="taskList"></div>
-      </section>
-
       <section class="screen" id="screen-rewards">
-        <div class="sectionHead">
-          <div class="sectionTitle">Loot Shop</div>
-          <div class="sectionSub">Échange tes SPID</div>
-        </div>
+        <div class="sectionHead"><div class="sectionTitle">Reward Center</div><div class="sectionSub">Reward + missions dans la même page</div></div>
+        <div class="subSwitch"><button class="subSwitchBtn active" data-reward-tab="rewards">🎁 Reward</button><button class="subSwitchBtn" data-reward-tab="missions">⚡ Missions</button></div>
 
-        <div class="shopHero">
-          <div>
-            <div style="font-size:12px;font-weight:900;text-transform:uppercase">Ton coffre</div>
-            <div class="shopBig" id="shopBalance">1250</div>
-            <div style="font-weight:900">SPID disponibles</div>
+        <div id="rewardTabRewards">
+          <div class="shopHero">
+            <div>
+              <div style="font-size:12px;font-weight:900;text-transform:uppercase">Ton coffre</div>
+              <div class="shopBig" id="shopBalance">1250</div>
+              <div style="font-weight:900">SPID disponibles</div>
+            </div>
+            <img class="shopMascot" src="/assets/dog-reward-gift.png" alt="Mascotte avec cadeau">
           </div>
-          <div style="font-size:52px">🎁</div>
+          <div class="rewardGrid" id="rewardGrid"></div>
         </div>
 
-        <div class="rewardGrid" id="rewardGrid"></div>
+        <div id="rewardTabMissions" class="hidden">
+          <div class="panel">
+            <div class="panelTitle">Missions disponibles</div>
+            <div class="panelText">Valide tes actions et récupère encore plus de SPID et de points.</div>
+            <div class="taskList" id="taskList"></div>
+          </div>
+        </div>
       </section>
 
       <section class="screen" id="screen-account">
-        <div class="sectionHead">
-          <div class="sectionTitle">Compte</div>
-          <div class="sectionSub">Profil & historique</div>
-        </div>
-
+        <div class="sectionHead"><div class="sectionTitle">Compte</div><div class="sectionSub">Profil & historique</div></div>
         <div class="panel">
           <div class="panelTitle" id="accountName">Joueur_7842</div>
           <div class="panelText">Ton profil, tes gains et tes actions récentes.</div>
-
-          <div class="ctaRow">
-            <button class="btnGhost" id="editProfileBtn">✏️ Modifier</button>
-            <button class="btn3d" id="clearHistoryBtn">🧹 Effacer l’historique</button>
-            <button class="btnDangerSoft" id="deleteAccountBtn">Supprimer mon compte</button>
-          </div>
-
+          <div class="ctaRow"><button class="btnGhost" id="editProfileBtn">✏️ Modifier</button><button class="btn3d" id="clearHistoryBtn">🧹 Effacer l’historique</button><button class="btnDangerSoft" id="deleteAccountBtn">Supprimer mon compte</button></div>
           <div class="historyList" id="historyList"></div>
         </div>
       </section>
@@ -1341,92 +705,52 @@
 
     <aside class="rightbar">
       <div class="rightSection">
-        <div class="miniPanel">
-          <h4>Top récompenses</h4>
-          <p>Les objets les plus désirés de la semaine.</p>
-          <div class="miniList">
-            <div class="miniItem"><span>🎧 AirPods</span><strong>4200</strong></div>
-            <div class="miniItem"><span>🎮 Manette PS5</span><strong>2600</strong></div>
-            <div class="miniItem"><span>🎟️ Bon d’achat</span><strong>1800</strong></div>
-          </div>
-        </div>
-
-        <div class="miniPanel">
-          <h4>Classement live</h4>
-          <p>La vibe compétitive rend l’expérience plus sociale.</p>
-          <div class="miniList">
-            <div class="miniItem"><span>🥇 NeonKing</span><strong>8420</strong></div>
-            <div class="miniItem"><span>🥈 <span id="rankingUser">Joueur_7842</span></span><strong id="rankingScore">1250</strong></div>
-            <div class="miniItem"><span>🥉 LuckyGirl</span><strong>1980</strong></div>
-          </div>
-        </div>
-
-        <div class="miniPanel">
-          <h4>Conseil SPIDY</h4>
-          <p>Le fond mobile du menu bas est propre, le bas de la home est plus fondu, et la bulle roue remonte au-dessus de la barre.</p>
-        </div>
+        <div class="miniPanel"><h4>Top récompenses</h4><p>Les objets les plus désirés de la semaine.</p><div class="miniList"><div class="miniItem"><span>🎧 AirPods</span><strong>4200</strong></div><div class="miniItem"><span>🎮 Manette PS5</span><strong>2600</strong></div><div class="miniItem"><span>🎟️ Bon d’achat</span><strong>1800</strong></div></div></div>
+        <div class="miniPanel"><h4>Classement live</h4><p>La vibe compétitive rend l’expérience plus sociale.</p><div class="miniList"><div class="miniItem"><span>🥇 NeonKing</span><strong>8420</strong></div><div class="miniItem"><span>🥈 <span id="rankingUser">Joueur_7842</span></span><strong id="rankingScore">1250</strong></div><div class="miniItem"><span>🥉 LuckyGirl</span><strong>1980</strong></div></div></div>
+        <div class="miniPanel"><h4>Conseil SPIDY</h4><p>SPID = monnaie principale. Points = progression. Sur mobile, le clic sur les compteurs ouvre l’explication.</p></div>
       </div>
     </aside>
   </div>
 
-  <button class="floatingSpin" id="floatingSpin">🎡</button>
+  <button class="floatingSpin" id="floatingSpin">✦</button>
 
   <div class="mobileBottom">
     <div class="mobileBottomInner">
       <button class="tabBtn active" data-tab="home"><div class="i">🏠</div><div>Accueil</div></button>
-      <button class="tabBtn" data-tab="lottery"><div class="i">🎰</div><div>Loterie</div></button>
-      <button class="tabBtn" data-tab="scratch"><div class="i">🪄</div><div>Grattage</div></button>
-      <button class="tabBtn" data-tab="market"><div class="i">📈</div><div>Prediction</div></button>
-      <button class="tabBtn" data-tab="tasks"><div class="i">⚡</div><div>Missions</div></button>
+      <button class="tabBtn" data-tab="lottery"><div class="i">◈</div><div>Loterie</div></button>
+      <button class="tabBtn" data-tab="scratch"><div class="i">✷</div><div>Grattage</div></button>
+      <button class="tabBtn" data-tab="market"><div class="i">↗</div><div>Prediction</div></button>
+      <button class="tabBtn" data-tab="rewards"><div class="i">🎁</div><div>Reward</div></button>
     </div>
   </div>
 
-  <div class="overlay" id="overlay">
-    <div class="modal" id="modal"></div>
-  </div>
-
+  <div class="overlay" id="overlay"><div class="modal" id="modal"></div></div>
   <div class="toast" id="toast"></div>
 
   <script>
-    const STATE = {
-      spid: 1250,
-      streak: 5,
-      wins: 12,
-      current: "home",
-      canFreeSpin: true,
-      wheelRotation: 0,
-      profileName: "Joueur_7842",
-      address: "",
-      birthdate: "",
-      boughtSpins: 0
-    };
-
-    const WHEEL_PRIZES = [25, 50, 75, 100, 150, 200, "x2", "Lucky"];
+    const STATE = { spid:1250, points:340, streak:5, wins:12, current:"home", canFreeSpin:true, wheelRotation:0, profileName:"Joueur_7842", address:"", birthdate:"", boughtSpins:0, rewardTab:"rewards" };
+    const WHEEL_PRIZES = [25,50,75,100,150,200,"x2","SPID"];
     const SYMBOLS = ["💎","👑","🏆","⭐","🪙","🔔","🗝","🔥"];
     const LOTTERY_PAYOUT = {1:2,2:8,3:25,4:80,5:250,6:1000};
-
     const LOTTERIES = [
-      { id:"mega", name:"Méga Fortune", desc:"Tirage dans 4h 20", tag:"🔥 Jackpot" },
-      { id:"royal", name:"Royal 6", desc:"Tirage dans 2h 10", tag:"👑 Premium" },
-      { id:"flash", name:"Flash Draw", desc:"Tirage dans 20 min", tag:"⚡ Rapide" }
+      { id:"mega", name:"Méga Fortune", desc:"Tirage à 20h", tag:"◈ Jackpot" },
+      { id:"royal", name:"Royal 6", desc:"Tirage à 20h", tag:"👑 Premium" },
+      { id:"flash", name:"Flash Draw", desc:"Tirage à 20h", tag:"⚡ Rapide" }
     ];
-
     const SCRATCHES = [
-      { id:"cosmic", name:"Ticket Cosmic", desc:"Ticket bleu néon", tag:"💎 Rare" },
+      { id:"cosmic", name:"Ticket Cosmic", desc:"Ticket bleu néon", tag:"✷ Rare" },
       { id:"gold", name:"Golden Rush", desc:"Ticket ultra reward", tag:"🪙 Gold" },
       { id:"joker", name:"Joker Pop", desc:"Ticket bonus surprise", tag:"🎉 Fun" }
     ];
-
     const TASKS = [
-      { id:"t1", icon:"🎡", title:"Faire tourner la SPIDWHEEL", reward:60, done:true },
-      { id:"t2", icon:"🎰", title:"Valider une loterie", reward:120, done:false },
-      { id:"t3", icon:"🪄", title:"Gratter un ticket", reward:90, done:true },
-      { id:"t4", icon:"⚔️", title:"Faire une prédiction", reward:150, done:false },
-      { id:"t5", icon:"🎁", title:"Ouvrir le reward shop", reward:85, done:false },
-      { id:"t6", icon:"🏆", title:"Jouer 3 fois", reward:300, done:true },
-      { id:"t7", icon:"👑", title:"Mode boss", reward:600, done:false }
+      { id:"t1", icon:"✦", title:"Faire tourner la SPIDWHEEL", reward:60, points:25, done:true },
+      { id:"t2", icon:"◈", title:"Valider une loterie", reward:120, points:40, done:false },
+      { id:"t3", icon:"✷", title:"Gratter un ticket", reward:90, points:35, done:true },
+      { id:"t4", icon:"↗", title:"Faire une prédiction", reward:150, points:55, done:false },
+      { id:"t5", icon:"🎁", title:"Ouvrir le reward shop", reward:85, points:25, done:false },
+      { id:"t6", icon:"🏆", title:"Jouer 3 fois", reward:300, points:100, done:true },
+      { id:"t7", icon:"⚡", title:"Mode boss", reward:600, points:180, done:false }
     ];
-
     const REWARDS = [
       { icon:"🎧", name:"AirPods", cost:4200, tag:"Premium" },
       { icon:"🎮", name:"Manette PS5", cost:2600, tag:"Gaming" },
@@ -1435,754 +759,173 @@
       { icon:"🧢", name:"Casquette SPID", cost:850, tag:"Style" },
       { icon:"🪙", name:"Pack Bonus", cost:650, tag:"Boost" }
     ];
-
     const MARKETS = [
-      { id:"m1", question:"Le PSG marque 2 buts ou plus ?", yes:"1.8x", no:"2.1x", pool:"2450 SPID" },
-      { id:"m2", question:"Un live dépasse 100k viewers ce soir ?", yes:"1.6x", no:"2.4x", pool:"4210 SPID" },
-      { id:"m3", question:"Une annonce gaming surprise tombe aujourd’hui ?", yes:"1.9x", no:"2.0x", pool:"1920 SPID" }
+      { id:"m1", question:"Le PSG marque 2 buts ou plus ?", yes:"OUI", no:"NON", pool:"+25 à +250 points" },
+      { id:"m2", question:"Un live dépasse 100k viewers ce soir ?", yes:"OUI", no:"NON", pool:"+25 à +250 points" },
+      { id:"m3", question:"Une annonce gaming surprise tombe aujourd’hui ?", yes:"OUI", no:"NON", pool:"+25 à +250 points" }
     ];
-
     let history = [
-      { icon:"🎡", label:"SPIDWHEEL quotidienne", delta:+50 },
-      { icon:"🪄", label:"Ticket gratté", delta:+100 },
-      { icon:"⚔️", label:"Prédiction", delta:-50 }
+      { icon:"✦", label:"SPIDWHEEL quotidienne", delta:+50, type:"spid" },
+      { icon:"✷", label:"Ticket gratté", delta:+100, type:"spid" },
+      { icon:"⚡", label:"Mission validée", delta:+25, type:"points" }
     ];
-
-    let selectedNumbers = [];
-    let selectedSymbols = [];
-    let scratchSymbols = [];
-    let scratchCtx = null;
-    let scratchDone = false;
-    let marketState = {};
-    let currentLottery = LOTTERIES[0];
-    let currentScratch = SCRATCHES[0];
-
+    let selectedNumbers = [], selectedSymbols = [], scratchSymbols = [], scratchCtx = null, scratchDone = false, marketState = {}, currentLottery = LOTTERIES[0], currentScratch = SCRATCHES[0];
     const $ = s => document.querySelector(s);
     const $$ = s => [...document.querySelectorAll(s)];
     const fmt = n => new Intl.NumberFormat("fr-FR").format(n);
 
-    function showToast(msg){
-      const el = $("#toast");
-      el.textContent = msg;
-      el.classList.add("show");
-      clearTimeout(el._t);
-      el._t = setTimeout(() => el.classList.remove("show"), 1800);
-    }
-
+    function showToast(msg){ const el=$("#toast"); el.textContent=msg; el.classList.add("show"); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove("show"),1800); }
     function updateUI(){
-      ["#spidSide","#shopBalance","#rankingScore"].forEach(sel => {
-        const el = $(sel);
-        if(el) el.textContent = fmt(STATE.spid);
-      });
-
-      const streak = $("#streakSide");
-      if(streak) streak.textContent = STATE.streak;
-
-      ["#accountName","#rankingUser","#dropNameDesktop","#dropNameMobile"].forEach(sel => {
-        const el = $(sel);
-        if(el) el.textContent = STATE.profileName;
-      });
-
-      ["#avatarMobile","#avatarTopDesktop","#avatarDropDesktop","#avatarDropMobile"].forEach(sel => {
-        const el = $(sel);
-        if(el) el.textContent = (STATE.profileName || "J").charAt(0).toUpperCase();
-      });
-
-      renderHistory();
-      renderTasks();
+      ["#spidSide","#shopBalance","#rankingScore","#spidMobile"].forEach(sel=>{ const el=$(sel); if(el) el.textContent=fmt(STATE.spid); });
+      ["#pointsSide","#pointsMobile"].forEach(sel=>{ const el=$(sel); if(el) el.textContent=fmt(STATE.points); });
+      ["#accountName","#rankingUser","#dropNameDesktop","#dropNameMobile"].forEach(sel=>{ const el=$(sel); if(el) el.textContent=STATE.profileName; });
+      ["#avatarMobile","#avatarTopDesktop","#avatarDropDesktop","#avatarDropMobile"].forEach(sel=>{ const el=$(sel); if(el) el.textContent=(STATE.profileName||"J").charAt(0).toUpperCase(); });
+      renderHistory(); renderTasks(); renderHomeMissions(); renderRewardTab();
     }
-
-    function addSpid(v, label, icon="🪙"){
-      STATE.spid = Math.max(0, STATE.spid + v);
-      history.unshift({ icon, label, delta:v });
-      history = history.slice(0, 20);
-      updateUI();
-    }
-
-    function openModal(title, text, big="", actions=[]){
-      $("#modal").innerHTML = `
-        <div class="modalTitle">${title}</div>
-        <div class="modalText">${text}</div>
-        ${big ? `<div class="modalBig">${big}</div>` : ""}
-        <div class="modalActions">
-          ${actions.map((a,i)=>`<button class="${a.kind || 'btn3d'}" data-modal-action="${i}" style="flex:1">${a.label}</button>`).join("")}
-        </div>
-      `;
+    function addSpid(v,label,icon="🪙"){ STATE.spid=Math.max(0,STATE.spid+v); history.unshift({icon,label,delta:v,type:"spid"}); history=history.slice(0,20); updateUI(); }
+    function addPoints(v,label,icon="⚡"){ STATE.points=Math.max(0,STATE.points+v); history.unshift({icon,label,delta:v,type:"points"}); history=history.slice(0,20); updateUI(); }
+    function openModal(title,text,big="",actions=[]){
+      $("#modal").innerHTML=`<div class="modalTitle">${title}</div><div class="modalText">${text}</div>${big?`<div class="modalBig">${big}</div>`:""}<div class="modalActions">${actions.map((a,i)=>`<button class="${a.kind||'btn3d'}" data-modal-action="${i}" style="flex:1">${a.label}</button>`).join("")}</div>`;
       $("#overlay").classList.add("open");
-      $$("[data-modal-action]").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const action = actions[+btn.dataset.modalAction];
-          if(action && action.onClick) action.onClick();
-        });
-      });
+      $$('[data-modal-action]').forEach(btn=>btn.addEventListener('click',()=>{ const action=actions[+btn.dataset.modalAction]; if(action&&action.onClick) action.onClick(); }));
     }
-
     function closeModal(){ $("#overlay").classList.remove("open"); }
-    $("#overlay").addEventListener("click", e => { if(e.target.id === "overlay") closeModal(); });
-
+    $("#overlay").addEventListener("click",e=>{ if(e.target.id==="overlay") closeModal(); });
     function go(screen){
-      STATE.current = screen;
-      $$(".screen").forEach(s => s.classList.remove("active"));
-      const target = $("#screen-" + screen);
-      if(target) target.classList.add("active");
-
-      $$(".navBtn").forEach(b => b.classList.toggle("active", b.dataset.nav === screen));
-      $$(".tabBtn").forEach(b => b.classList.toggle("active", b.dataset.tab === screen));
-      closeAllDropdowns();
+      STATE.current=screen; $$(".screen").forEach(s=>s.classList.remove("active")); const target=$("#screen-"+screen); if(target) target.classList.add("active");
+      $$(".navBtn").forEach(b=>b.classList.toggle("active",b.dataset.nav===screen)); $$(".tabBtn").forEach(b=>b.classList.toggle("active",b.dataset.tab===screen)); closeAllDropdowns();
     }
-
-    function closeAllDropdowns(){
-      ["#playerDropdownDesktop","#playerDropdownMobile"].forEach(sel => {
-        const el = $(sel);
-        if(el) el.classList.remove("open");
-      });
-    }
-
-    $$(".navBtn").forEach(btn => btn.addEventListener("click", () => go(btn.dataset.nav)));
-    $$(".tabBtn").forEach(btn => btn.addEventListener("click", () => go(btn.dataset.tab)));
-    $$("[data-go]").forEach(btn => btn.addEventListener("click", () => go(btn.dataset.go)));
-    $("#floatingSpin").addEventListener("click", () => go("wheel"));
-
-    $("#playerIconDesktop")?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      $("#playerDropdownDesktop").classList.toggle("open");
-      $("#playerDropdownMobile").classList.remove("open");
-    });
-
-    $("#playerIconMobile")?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      $("#playerDropdownMobile").classList.toggle("open");
-      $("#playerDropdownDesktop").classList.remove("open");
-    });
-
-    document.addEventListener("click", (e) => {
-      if(!e.target.closest(".playerMenuWrap")) closeAllDropdowns();
-    });
-
-    $$("[data-drop-action]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const action = btn.dataset.dropAction;
-        closeAllDropdowns();
-        if(action === "account") go("account");
-        if(action === "edit") openEditProfile();
-        if(action === "history"){
-          go("account");
-          showToast("Historique affiché");
-        }
-      });
-    });
+    function setRewardTab(tab){ STATE.rewardTab=tab; renderRewardTab(); }
+    function renderRewardTab(){ $("#rewardTabRewards")?.classList.toggle("hidden",STATE.rewardTab!=="rewards"); $("#rewardTabMissions")?.classList.toggle("hidden",STATE.rewardTab!=="missions"); $$('[data-reward-tab]').forEach(btn=>btn.classList.toggle('active',btn.dataset.rewardTab===STATE.rewardTab)); }
+    function goRewardsTab(tab){ go("rewards"); setRewardTab(tab); }
+    function closeAllDropdowns(){ ["#playerDropdownDesktop","#playerDropdownMobile"].forEach(sel=>{ const el=$(sel); if(el) el.classList.remove("open"); }); $$('[data-mobile-resource]').forEach(el=>el.classList.remove('showBubble')); }
+    $$(".navBtn").forEach(btn=>btn.addEventListener("click",()=>go(btn.dataset.nav)));
+    $$(".tabBtn").forEach(btn=>btn.addEventListener("click",()=>go(btn.dataset.tab)));
+    $$('[data-go]').forEach(btn=>btn.addEventListener('click',()=>go(btn.dataset.go)));
+    $$('[data-reward-tab]').forEach(btn=>btn.addEventListener('click',()=>setRewardTab(btn.dataset.rewardTab)));
+    $("#floatingSpin").addEventListener("click",()=>go("wheel"));
+    $("#moreMissionsBtn").addEventListener("click",()=>goRewardsTab("missions"));
+    $("#playerIconDesktop")?.addEventListener("click",e=>{ e.stopPropagation(); $("#playerDropdownDesktop").classList.toggle("open"); $("#playerDropdownMobile").classList.remove("open"); });
+    $("#playerIconMobile")?.addEventListener("click",e=>{ e.stopPropagation(); $("#playerDropdownMobile").classList.toggle("open"); $("#playerDropdownDesktop").classList.remove("open"); });
+    document.addEventListener("click",e=>{ if(!e.target.closest('.playerMenuWrap') && !e.target.closest('[data-mobile-resource]')) closeAllDropdowns(); });
+    $$('[data-drop-action]').forEach(btn=>btn.addEventListener('click',()=>{ const action=btn.dataset.dropAction; closeAllDropdowns(); if(action==='account') go('account'); if(action==='edit') openEditProfile(); if(action==='history'){ go('account'); showToast('Historique affiché'); }}));
+    $$('[data-mobile-resource]').forEach(el=>el.addEventListener('click',e=>{ if(window.innerWidth>820) return; e.stopPropagation(); const wasOpen=el.classList.contains('showBubble'); $$('[data-mobile-resource]').forEach(other=>other.classList.remove('showBubble')); if(!wasOpen) el.classList.add('showBubble'); }));
 
     function renderWheelPrizes(){
-      $("#wheelPrizeList").innerHTML = WHEEL_PRIZES.map(p => `
-        <div class="prizeRow">
-          <span>${p === "Lucky" ? "🎁 Bonus Lucky" : p === "x2" ? "✨ Multiplicateur x2" : "🪙 " + p + " SPID"}</span>
-          <div>possible</div>
-        </div>
-      `).join("");
+      const label = p => p==='SPID' ? '💎 Case rare · 40 SPID' : p==='x2' ? '✨ Jackpot points x2' : '🪙 '+p+' points';
+      $("#wheelPrizeList").innerHTML=WHEEL_PRIZES.map(p=>`<div class="prizeRow"><span>${label(p)}</span><div>possible</div></div>`).join('');
     }
-
-    const wheelCanvas = $("#wheelCanvas");
-    const wheelCtx = wheelCanvas.getContext("2d");
-
-    function drawWheel(rotation = 0){
-      const ctx = wheelCtx;
-      const w = wheelCanvas.width;
-      const h = wheelCanvas.height;
-      const r = w / 2 - 16;
-      const step = (Math.PI * 2) / WHEEL_PRIZES.length;
-      const colors = ["#ffcf3d","#ff6adf","#57d9ff","#61ef7b","#ff8b3d","#c15aff","#ffd93d","#00a3ff"];
-
-      ctx.clearRect(0,0,w,h);
-      ctx.save();
-      ctx.translate(w/2,h/2);
-      ctx.rotate(rotation);
-
-      WHEEL_PRIZES.forEach((prize,i)=>{
-        const a = i * step;
-        ctx.beginPath();
-        ctx.moveTo(0,0);
-        ctx.arc(0,0,r,a,a+step);
-        ctx.closePath();
-        ctx.fillStyle = colors[i % colors.length];
-        ctx.fill();
-        ctx.lineWidth = 8;
-        ctx.strokeStyle = "rgba(255,255,255,.25)";
-        ctx.stroke();
-
-        ctx.save();
-        ctx.rotate(a + step/2);
-        ctx.textAlign = "right";
-        ctx.fillStyle = "#fff";
-        ctx.font = "900 34px Inter";
-        ctx.fillText(String(prize), r - 20, 10);
-        ctx.restore();
-      });
-
+    const wheelCanvas=$("#wheelCanvas"); const wheelCtx=wheelCanvas.getContext("2d");
+    function drawWheel(rotation=0){
+      const ctx=wheelCtx, w=wheelCanvas.width, h=wheelCanvas.height, r=w/2-16, step=(Math.PI*2)/WHEEL_PRIZES.length;
+      const colors=["#ffcf3d","#ff6adf","#57d9ff","#61ef7b","#ff8b3d","#c15aff","#ffd93d","#00a3ff"];
+      ctx.clearRect(0,0,w,h); ctx.save(); ctx.translate(w/2,h/2); ctx.rotate(rotation);
+      WHEEL_PRIZES.forEach((prize,i)=>{ const a=i*step; ctx.beginPath(); ctx.moveTo(0,0); ctx.arc(0,0,r,a,a+step); ctx.closePath(); ctx.fillStyle=colors[i%colors.length]; ctx.fill(); ctx.lineWidth=8; ctx.strokeStyle='rgba(255,255,255,.25)'; ctx.stroke(); ctx.save(); ctx.rotate(a+step/2); ctx.textAlign='right'; ctx.fillStyle='#fff'; ctx.font='900 34px Inter'; ctx.fillText(prize==='SPID'?'SPID':String(prize),r-20,10); ctx.restore(); });
       ctx.restore();
     }
-
     function animateWheelPrize(prize){
-      const index = WHEEL_PRIZES.indexOf(prize);
-      const step = (Math.PI * 2) / WHEEL_PRIZES.length;
-      const turns = Math.PI * 2 * 6;
-      const target = turns + ((Math.PI * 2) - (index * step + step/2));
-
-      const start = STATE.wheelRotation;
-      const end = start + target;
-      const t0 = performance.now();
-
-      function animate(t){
-        const p = Math.min(1, (t - t0) / 3400);
-        const ease = 1 - Math.pow(1-p, 4);
-        STATE.wheelRotation = start + (end - start) * ease;
-        drawWheel(STATE.wheelRotation);
-
-        if(p < 1){
-          requestAnimationFrame(animate);
-        }else{
-          let gain = 0;
-          if(prize === "x2") gain = 100;
-          else if(prize === "Lucky") gain = 175;
-          else gain = prize;
-
-          addSpid(gain, "SPIDWHEEL", "🎡");
-          const task = TASKS.find(t => t.id === "t1");
-          if(task) task.done = true;
-          updateUI();
-
-          openModal(
-            "Jackpot visuel",
-            "Ton spin est tombé sur une récompense.",
-            `+${gain} SPID`,
-            [{ label:"Continuer", kind:"btn3d", onClick: closeModal }]
-          );
-        }
-      }
+      const index=WHEEL_PRIZES.indexOf(prize), step=(Math.PI*2)/WHEEL_PRIZES.length, turns=Math.PI*2*6, target=turns+((Math.PI*2)-(index*step+step/2)), start=STATE.wheelRotation, end=start+target, t0=performance.now();
+      function animate(t){ const p=Math.min(1,(t-t0)/3400), ease=1-Math.pow(1-p,4); STATE.wheelRotation=start+(end-start)*ease; drawWheel(STATE.wheelRotation); if(p<1){ requestAnimationFrame(animate); }else{
+          let big='';
+          if(prize==='SPID'){
+            addSpid(40,'Case rare SPIDWHEEL','✦');
+            big='+40 SPID';
+          }else{
+            const pts = prize==='x2' ? 300 : prize;
+            addPoints(pts,'SPIDWHEEL','✦');
+            big='+'+pts+' points';
+          }
+          addPoints(15,'Progression SPIDWHEEL','⚡');
+          const task=TASKS.find(t=>t.id==='t1'); if(task) task.done=true; updateUI();
+          openModal('Résultat de la roue','La roue donne surtout des points. Une case rare peut donner un peu de SPID.',big,[{label:'Continuer',kind:'btn3d',onClick:closeModal}]);
+      }}
       requestAnimationFrame(animate);
     }
-
-    function spinFreeWheel(){
-      if(!STATE.canFreeSpin){
-        showToast("Spin gratuit déjà utilisé");
-        return;
-      }
-      STATE.canFreeSpin = false;
-      const prize = WHEEL_PRIZES[Math.floor(Math.random() * WHEEL_PRIZES.length)];
-      animateWheelPrize(prize);
-    }
-
-    function buySpin(){
-      if(STATE.spid < 250){
-        showToast("Pas assez de SPID");
-        return;
-      }
-      addSpid(-250, "Achat tour de SPIDWHEEL", "🪙");
-      STATE.boughtSpins += 1;
-      const prize = WHEEL_PRIZES[Math.floor(Math.random() * WHEEL_PRIZES.length)];
-      animateWheelPrize(prize);
-    }
-
-    $("#spinBtn").addEventListener("click", spinFreeWheel);
-    $("#buySpinBtn").addEventListener("click", buySpin);
+    function spinFreeWheel(){ if(!STATE.canFreeSpin){ showToast('Spin gratuit déjà utilisé'); return; } STATE.canFreeSpin=false; const prize=WHEEL_PRIZES[Math.floor(Math.random()*WHEEL_PRIZES.length)]; animateWheelPrize(prize); }
+    function buySpin(){ if(STATE.spid<250){ showToast('Pas assez de SPID'); return; } addSpid(-250,'Achat tour de SPIDWHEEL','🪙'); STATE.boughtSpins+=1; const prize=WHEEL_PRIZES[Math.floor(Math.random()*WHEEL_PRIZES.length)]; animateWheelPrize(prize); }
+    $("#spinBtn").addEventListener("click",spinFreeWheel); $("#buySpinBtn").addEventListener("click",buySpin);
 
     function renderLotterySelection(){
-      $("#lotterySelectionCards").innerHTML = LOTTERIES.map(l => `
-        <div class="selectCard lottery" data-lottery-select="${l.id}">
-          <div>
-            <div class="pill">${l.tag}</div>
-            <div class="cardTitle" style="margin-top:10px">${l.name}</div>
-            <div class="cardText">${l.desc}</div>
-          </div>
-          <div class="cardBottom">
-            <div class="subPill">Entrer</div>
-            <div style="font-size:28px">🎰</div>
-          </div>
-        </div>
-      `).join("");
-
-      $$("[data-lottery-select]").forEach(card => {
-        card.addEventListener("click", () => {
-          currentLottery = LOTTERIES.find(l => l.id === card.dataset.lotterySelect);
-          $("#lotteryPlayTitle").textContent = currentLottery.name;
-          $("#lotterySelectView").classList.add("hidden");
-          $("#lotteryPlayView").classList.remove("hidden");
-        });
-      });
+      $("#lotterySelectionCards").innerHTML=LOTTERIES.map(l=>`<div class="selectCard lottery" data-lottery-select="${l.id}"><div><div class="pill">${l.tag}</div><div class="cardTitle" style="margin-top:10px">${l.name}</div><div class="cardText">${l.desc}</div></div><div class="cardBottom"><div class="subPill">Entrer</div><div style="font-size:28px">◈</div></div></div>`).join('');
+      $$('[data-lottery-select]').forEach(card=>card.addEventListener('click',()=>{ currentLottery=LOTTERIES.find(l=>l.id===card.dataset.lotterySelect); $("#lotteryPlayTitle").textContent=currentLottery.name; $("#lotterySelectView").classList.add('hidden'); $("#lotteryPlayView").classList.remove('hidden'); }));
     }
-
     function renderScratchSelection(){
-      $("#scratchSelectionCards").innerHTML = SCRATCHES.map(s => `
-        <div class="selectCard scratch" data-scratch-select="${s.id}">
-          <div>
-            <div class="pill">${s.tag}</div>
-            <div class="cardTitle" style="margin-top:10px">${s.name}</div>
-            <div class="cardText">${s.desc}</div>
-          </div>
-          <div class="cardBottom">
-            <div class="subPill">Gratter</div>
-            <div style="font-size:28px">🪄</div>
-          </div>
-        </div>
-      `).join("");
-
-      $$("[data-scratch-select]").forEach(card => {
-        card.addEventListener("click", () => {
-          currentScratch = SCRATCHES.find(s => s.id === card.dataset.scratchSelect);
-          $("#scratchPlayTitle").textContent = currentScratch.name;
-          $("#scratchSelectView").classList.add("hidden");
-          $("#scratchPlayView").classList.remove("hidden");
-          newScratchTicket();
-        });
-      });
+      $("#scratchSelectionCards").innerHTML=SCRATCHES.map(s=>`<div class="selectCard scratch" data-scratch-select="${s.id}"><div><div class="pill">${s.tag}</div><div class="cardTitle" style="margin-top:10px">${s.name}</div><div class="cardText">${s.desc}</div></div><div class="cardBottom"><div class="subPill">Gratter</div><div style="font-size:28px">✷</div></div></div>`).join('');
+      $$('[data-scratch-select]').forEach(card=>card.addEventListener('click',()=>{ currentScratch=SCRATCHES.find(s=>s.id===card.dataset.scratchSelect); $("#scratchPlayTitle").textContent=currentScratch.name; $("#scratchSelectView").classList.add('hidden'); $("#scratchPlayView").classList.remove('hidden'); newScratchTicket(); }));
     }
-
-    $("#backToLotterySelection").addEventListener("click", () => {
-      $("#lotteryPlayView").classList.add("hidden");
-      $("#lotterySelectView").classList.remove("hidden");
-    });
-
-    $("#backToScratchSelection").addEventListener("click", () => {
-      $("#scratchPlayView").classList.add("hidden");
-      $("#scratchSelectView").classList.remove("hidden");
-    });
+    $("#backToLotterySelection").addEventListener("click",()=>{ $("#lotteryPlayView").classList.add('hidden'); $("#lotterySelectView").classList.remove('hidden'); });
+    $("#backToScratchSelection").addEventListener("click",()=>{ $("#scratchPlayView").classList.add('hidden'); $("#scratchSelectView").classList.remove('hidden'); });
 
     function buildLottery(){
-      $("#numGrid").innerHTML = Array.from({length:49}, (_,i) => {
-        const n = i + 1;
-        return `<button class="pickBtn ${selectedNumbers.includes(n) ? 'sel' : ''}" data-num="${n}">${n}</button>`;
-      }).join("");
-
-      $("#symbolGrid").innerHTML = SYMBOLS.map(s => `
-        <button class="pickBtn ${selectedSymbols.includes(s) ? 'sel' : ''}" data-sym="${s}">${s}</button>
-      `).join("");
-
-      $("#selectionWrap").innerHTML = [
-        ...selectedNumbers.map(n => `<div class="ball">${n}</div>`),
-        ...selectedSymbols.map(s => `<div class="ball">${s}</div>`)
-      ].join("");
-
-      $$("[data-num]").forEach(btn => btn.addEventListener("click", () => {
-        const n = +btn.dataset.num;
-        if(selectedNumbers.includes(n)){
-          selectedNumbers = selectedNumbers.filter(x => x !== n);
-        }else if(selectedNumbers.length < 4){
-          selectedNumbers.push(n);
-        }
-        buildLottery();
-      }));
-
-      $$("[data-sym]").forEach(btn => btn.addEventListener("click", () => {
-        const s = btn.dataset.sym;
-        if(selectedSymbols.includes(s)){
-          selectedSymbols = selectedSymbols.filter(x => x !== s);
-        }else if(selectedSymbols.length < 2){
-          selectedSymbols.push(s);
-        }
-        buildLottery();
-      }));
+      $("#numGrid").innerHTML=Array.from({length:49},(_,i)=>{ const n=i+1; return `<button class="pickBtn ${selectedNumbers.includes(n)?'sel':''}" data-num="${n}">${n}</button>`; }).join('');
+      $("#symbolGrid").innerHTML=SYMBOLS.map(s=>`<button class="pickBtn ${selectedSymbols.includes(s)?'sel':''}" data-sym="${s}">${s}</button>`).join('');
+      $("#selectionWrap").innerHTML=[...selectedNumbers.map(n=>`<div class="ball">${n}</div>`),...selectedSymbols.map(s=>`<div class="ball">${s}</div>`)].join('');
+      $$('[data-num]').forEach(btn=>btn.addEventListener('click',()=>{ const n=+btn.dataset.num; if(selectedNumbers.includes(n)) selectedNumbers=selectedNumbers.filter(x=>x!==n); else if(selectedNumbers.length<4) selectedNumbers.push(n); buildLottery(); }));
+      $$('[data-sym]').forEach(btn=>btn.addEventListener('click',()=>{ const s=btn.dataset.sym; if(selectedSymbols.includes(s)) selectedSymbols=selectedSymbols.filter(x=>x!==s); else if(selectedSymbols.length<2) selectedSymbols.push(s); buildLottery(); }));
     }
-
-    $("#quickPickBtn").addEventListener("click", () => {
-      selectedNumbers = [];
-      while(selectedNumbers.length < 4){
-        const n = Math.ceil(Math.random() * 49);
-        if(!selectedNumbers.includes(n)) selectedNumbers.push(n);
-      }
-      selectedSymbols = [];
-      while(selectedSymbols.length < 2){
-        const s = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
-        if(!selectedSymbols.includes(s)) selectedSymbols.push(s);
-      }
-      buildLottery();
-    });
-
-    $("#playLotteryBtn").addEventListener("click", () => {
-      if(selectedNumbers.length !== 4 || selectedSymbols.length !== 2){
-        showToast("Choisis 4 numéros et 2 symboles");
-        return;
-      }
-
-      const drawNums = [];
-      while(drawNums.length < 4){
-        const n = Math.ceil(Math.random() * 49);
-        if(!drawNums.includes(n)) drawNums.push(n);
-      }
-
-      const drawSyms = [];
-      while(drawSyms.length < 2){
-        const s = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
-        if(!drawSyms.includes(s)) drawSyms.push(s);
-      }
-
-      const matches = selectedNumbers.filter(n => drawNums.includes(n)).length +
-                      selectedSymbols.filter(s => drawSyms.includes(s)).length;
-
-      const gain = LOTTERY_PAYOUT[matches] || 0;
-      if(gain > 0) addSpid(gain, "Loterie Live", "🎰");
-
-      const task = TASKS.find(t => t.id === "t2");
-      if(task) task.done = true;
-      updateUI();
-
-      openModal(
-        gain > 0 ? "Ticket gagnant" : "Pas cette fois",
-        `Tirage : ${drawNums.join(" • ")} • ${drawSyms.join(" ")}`,
-        gain > 0 ? `+${gain} SPID` : "0 SPID",
-        [{ label:"OK", kind:"btn3d", onClick: closeModal }]
-      );
+    $("#quickPickBtn").addEventListener("click",()=>{ selectedNumbers=[]; while(selectedNumbers.length<4){ const n=Math.ceil(Math.random()*49); if(!selectedNumbers.includes(n)) selectedNumbers.push(n); } selectedSymbols=[]; while(selectedSymbols.length<2){ const s=SYMBOLS[Math.floor(Math.random()*SYMBOLS.length)]; if(!selectedSymbols.includes(s)) selectedSymbols.push(s); } buildLottery(); });
+    $("#playLotteryBtn").addEventListener("click",()=>{
+      if(selectedNumbers.length!==4 || selectedSymbols.length!==2){ showToast('Choisis 4 numéros et 2 symboles'); return; }
+      const ticket={
+        lottery: currentLottery.name,
+        numbers:[...selectedNumbers],
+        symbols:[...selectedSymbols],
+        draw:'20:00'
+      };
+      STATE.pendingLotteryTickets.unshift(ticket);
+      history.unshift({ icon:'🎟️', label:`Ticket ${currentLottery.name} enregistré pour 20h`, delta:0, type:'ticket' });
+      history = history.slice(0,20);
+      addPoints(10,'Ticket loterie enregistré','◈');
+      const task=TASKS.find(t=>t.id==='t2'); if(task) task.done=true; updateUI();
+      openModal('Ticket enregistré','Ta grille est sauvegardée. Le tirage au sort aura lieu à 20h.',`${ticket.numbers.join(' • ')} • ${ticket.symbols.join(' ')}`,[{label:'OK',kind:'btn3d',onClick:closeModal}]);
     });
 
     function newScratchTicket(){
-      const cells = [];
-      const winner = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
-      cells.push(winner, winner, winner);
-      while(cells.length < 9) cells.push(SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)]);
-      scratchSymbols = cells.sort(() => Math.random() - .5);
-
-      $("#scratchUnder").innerHTML = `
-        <div class="scratchUnderGrid">
-          ${scratchSymbols.map(s => `<div class="scratchCell">${s}</div>`).join("")}
-        </div>
-      `;
-
-      setupScratch();
+      const cells=[]; const winner=SYMBOLS[Math.floor(Math.random()*SYMBOLS.length)]; cells.push(winner,winner,winner); while(cells.length<9) cells.push(SYMBOLS[Math.floor(Math.random()*SYMBOLS.length)]); scratchSymbols=cells.sort(()=>Math.random()-.5);
+      $("#scratchUnder").innerHTML=`<div class="scratchUnderGrid">${scratchSymbols.map(s=>`<div class="scratchCell">${s}</div>`).join('')}</div>`; setupScratch();
     }
-
     function setupScratch(){
-      const wrap = $("#scratchMaskWrap");
-      const canvas = $("#scratchCanvas");
-      const rect = wrap.getBoundingClientRect();
-      const ratio = window.devicePixelRatio || 1;
-
-      canvas.width = rect.width * ratio;
-      canvas.height = rect.height * ratio;
-      scratchCtx = canvas.getContext("2d");
-
-      scratchCtx.setTransform(1,0,0,1,0,0);
-      scratchCtx.scale(ratio, ratio);
-
-      scratchCtx.clearRect(0,0,rect.width,rect.height);
-      scratchCtx.fillStyle = "#b751ff";
-      scratchCtx.fillRect(0,0,rect.width,rect.height);
-
-      for(let i=0;i<130;i++){
-        scratchCtx.fillStyle = "rgba(255,255,255,.18)";
-        scratchCtx.fillRect(Math.random()*rect.width, Math.random()*rect.height, 2, 2);
-      }
-
-      scratchCtx.fillStyle = "rgba(255,255,255,.92)";
-      scratchCtx.font = `900 ${Math.round(rect.width * .095)}px Inter`;
-      scratchCtx.textAlign = "center";
-      scratchCtx.fillText("GRATTE ICI", rect.width/2, rect.height/2);
-
-      scratchDone = false;
-
-      let down = false;
-      let last = null;
-
-      function point(e){
-        const r = canvas.getBoundingClientRect();
-        return {
-          x:(e.clientX-r.left),
-          y:(e.clientY-r.top)
-        };
-      }
-
-      function erase(from,to){
-        scratchCtx.save();
-        scratchCtx.globalCompositeOperation = "destination-out";
-        scratchCtx.lineCap = "round";
-        scratchCtx.lineJoin = "round";
-        scratchCtx.strokeStyle = "#000";
-        scratchCtx.lineWidth = Math.max(24, rect.width * 0.08);
-        scratchCtx.beginPath();
-        scratchCtx.moveTo(from.x,from.y);
-        scratchCtx.lineTo(to.x,to.y);
-        scratchCtx.stroke();
-        scratchCtx.restore();
-      }
-
-      function finishScratch(){
-        if(scratchDone) return;
-        const img = scratchCtx.getImageData(0,0,rect.width,rect.height).data;
-        let total = 0, clear = 0;
-        for(let y=0;y<rect.height;y+=12){
-          for(let x=0;x<rect.width;x+=12){
-            total++;
-            if(img[(y*rect.width+x)*4+3] < 80) clear++;
-          }
-        }
-        if(clear/total > .62){
-          revealScratch();
-        }
-      }
-
-      canvas.onpointerdown = e => {
-        down = true;
-        last = point(e);
-      };
-      canvas.onpointermove = e => {
-        if(!down || scratchDone) return;
-        const p = point(e);
-        erase(last,p);
-        last = p;
-      };
-      canvas.onpointerup = () => { down = false; finishScratch(); };
-      canvas.onpointercancel = () => { down = false; };
+      const wrap=$("#scratchMaskWrap"), canvas=$("#scratchCanvas"), rect=wrap.getBoundingClientRect(), ratio=window.devicePixelRatio||1; canvas.width=rect.width*ratio; canvas.height=rect.height*ratio; scratchCtx=canvas.getContext('2d'); scratchCtx.setTransform(1,0,0,1,0,0); scratchCtx.scale(ratio,ratio); scratchCtx.clearRect(0,0,rect.width,rect.height); scratchCtx.fillStyle='#b751ff'; scratchCtx.fillRect(0,0,rect.width,rect.height);
+      for(let i=0;i<130;i++){ scratchCtx.fillStyle='rgba(255,255,255,.18)'; scratchCtx.fillRect(Math.random()*rect.width,Math.random()*rect.height,2,2); }
+      scratchCtx.fillStyle='rgba(255,255,255,.92)'; scratchCtx.font=`900 ${Math.round(rect.width*.095)}px Inter`; scratchCtx.textAlign='center'; scratchCtx.fillText('GRATTE ICI',rect.width/2,rect.height/2); scratchDone=false; let down=false,last=null;
+      function point(e){ const r=canvas.getBoundingClientRect(); return {x:(e.clientX-r.left),y:(e.clientY-r.top)}; }
+      function erase(from,to){ scratchCtx.save(); scratchCtx.globalCompositeOperation='destination-out'; scratchCtx.lineCap='round'; scratchCtx.lineJoin='round'; scratchCtx.strokeStyle='#000'; scratchCtx.lineWidth=Math.max(24,rect.width*.08); scratchCtx.beginPath(); scratchCtx.moveTo(from.x,from.y); scratchCtx.lineTo(to.x,to.y); scratchCtx.stroke(); scratchCtx.restore(); }
+      function finishScratch(){ if(scratchDone) return; const img=scratchCtx.getImageData(0,0,rect.width,rect.height).data; let total=0, clear=0; for(let y=0;y<rect.height;y+=12){ for(let x=0;x<rect.width;x+=12){ total++; if(img[(y*rect.width+x)*4+3] < 80) clear++; }} if(clear/total > .62) revealScratch(); }
+      canvas.onpointerdown=e=>{ down=true; last=point(e); };
+      canvas.onpointermove=e=>{ if(!down||scratchDone) return; const p=point(e); erase(last,p); last=p; };
+      canvas.onpointerup=()=>{ down=false; finishScratch(); }; canvas.onpointercancel=()=>{ down=false; };
     }
-
     function revealScratch(){
-      if(scratchDone) return;
-      scratchDone = true;
-
-      const wrap = $("#scratchMaskWrap");
-      const rect = wrap.getBoundingClientRect();
-      scratchCtx.clearRect(0,0,rect.width,rect.height);
-
-      const counts = {};
-      scratchSymbols.forEach(s => counts[s] = (counts[s] || 0) + 1);
-      const winner = Object.entries(counts).find(([,v]) => v >= 3)?.[0];
-
-      let gain = 0;
-      if(winner === "💎") gain = 150;
-      else if(winner === "👑") gain = 100;
-      else if(winner === "🏆") gain = 75;
-      else if(winner === "⭐") gain = 200;
-      else if(winner === "🪙") gain = 25;
-      else if(winner === "🔥") gain = 120;
-      else gain = 50;
-
-      addSpid(gain, "Grattage Neo", "🪄");
-      const task = TASKS.find(t => t.id === "t3");
-      if(task) task.done = true;
-      updateUI();
-
-      openModal(
-        "Ticket révélé",
-        "Tu as trouvé une combinaison gagnante.",
-        `+${gain} SPID`,
-        [{ label:"Nice", kind:"btn3d", onClick: closeModal }]
-      );
+      if(scratchDone) return; scratchDone=true; const wrap=$("#scratchMaskWrap"), rect=wrap.getBoundingClientRect(); scratchCtx.clearRect(0,0,rect.width,rect.height);
+      const counts={}; scratchSymbols.forEach(s=>counts[s]=(counts[s]||0)+1); const winner=Object.entries(counts).find(([,v])=>v>=3)?.[0];
+      let gain=0; if(winner==='💎') gain=150; else if(winner==='👑') gain=100; else if(winner==='🏆') gain=75; else if(winner==='⭐') gain=200; else if(winner==='🪙') gain=25; else if(winner==='🔥') gain=120; else gain=50;
+      addPoints(gain,'Grattage Neo','✷'); addPoints(22,'Progression grattage','⚡'); const task=TASKS.find(t=>t.id==='t3'); if(task) task.done=true; updateUI();
+      openModal('Ticket révélé','Le grattage donne maintenant des points.',`+${gain} points`,[{label:'Nice',kind:'btn3d',onClick:closeModal}]);
     }
-
-    $("#resetScratchBtn").addEventListener("click", newScratchTicket);
-    $("#revealScratchBtn").addEventListener("click", revealScratch);
-    window.addEventListener("resize", () => {
-      if(!$("#scratchPlayView").classList.contains("hidden")) setupScratch();
-    });
+    $("#resetScratchBtn").addEventListener("click",newScratchTicket); $("#revealScratchBtn").addEventListener("click",revealScratch); window.addEventListener('resize',()=>{ if(!$("#scratchPlayView").classList.contains('hidden')) setupScratch(); });
 
     function renderMarkets(){
-      $("#marketList").innerHTML = MARKETS.map(m => {
-        const st = marketState[m.id] || {};
-        return `
-          <div class="marketCard">
-            <div class="pill">⚔️ Duel</div>
-            <div class="cardTitle">${m.question}</div>
-            <div class="cardText">Pool : ${m.pool}</div>
-
-            <div class="choiceRow">
-              <button class="choiceBtn yes ${st.choice === 'yes' ? 'sel' : ''}" data-market="${m.id}" data-choice="yes">OUI<br><small>${m.yes}</small></button>
-              <button class="choiceBtn no ${st.choice === 'no' ? 'sel' : ''}" data-market="${m.id}" data-choice="no">NON<br><small>${m.no}</small></button>
-            </div>
-
-            ${st.choice ? `
-              <div class="chips">
-                ${[25,50,100,250].map(a => `<button class="chip ${st.amount === a ? 'sel' : ''}" data-market-amount="${m.id}" data-amount="${a}">${a}</button>`).join("")}
-                <button class="btn3d" data-confirm-market="${m.id}" style="padding:10px 14px">Valider</button>
-              </div>
-            ` : ""}
-          </div>
-        `;
-      }).join("");
-
-      $$("[data-choice]").forEach(btn => btn.addEventListener("click", () => {
-        const id = btn.dataset.market;
-        marketState[id] = marketState[id] || {};
-        marketState[id].choice = btn.dataset.choice;
-        marketState[id].amount = marketState[id].amount || 50;
-        renderMarkets();
-      }));
-
-      $$("[data-market-amount]").forEach(btn => btn.addEventListener("click", () => {
-        const id = btn.dataset.marketAmount;
-        marketState[id].amount = +btn.dataset.amount;
-        renderMarkets();
-      }));
-
-      $$("[data-confirm-market]").forEach(btn => btn.addEventListener("click", () => {
-        const id = btn.dataset.confirmMarket;
-        const st = marketState[id];
-        if(!st) return;
-        if(STATE.spid < st.amount){
-          showToast("Pas assez de SPID");
-          return;
-        }
-        addSpid(-st.amount, "Prédiction Clash", "⚔️");
-        const task = TASKS.find(t => t.id === "t4");
-        if(task) task.done = true;
-        updateUI();
-
-        openModal(
-          "Prédiction envoyée",
-          "Ton pick a été enregistré.",
-          `-${st.amount} SPID`,
-          [{ label:"Continuer", kind:"btn3d", onClick: closeModal }]
-        );
-      }));
+      $("#marketList").innerHTML=MARKETS.map(m=>{ const st=marketState[m.id]||{}; return `<div class="marketCard"><div class="pill">↗ Duel</div><div class="cardTitle">${m.question}</div><div class="cardText">Récompense : ${m.pool}</div><div class="choiceRow"><button class="choiceBtn yes ${st.choice==='yes'?'sel':''}" data-market="${m.id}" data-choice="yes">OUI</button><button class="choiceBtn no ${st.choice==='no'?'sel':''}" data-market="${m.id}" data-choice="no">NON</button></div>${st.choice?`<div class="chips"><span class="subPill">Choisis les points visés</span>${[25,50,100,250].map(a=>`<button class="chip ${st.amount===a?'sel':''}" data-market-amount="${m.id}" data-amount="${a}">${a} pts</button>`).join('')}<button class="btn3d" data-confirm-market="${m.id}" style="padding:10px 14px">Valider</button></div>`:''}</div>`; }).join('');
+      $$('[data-choice]').forEach(btn=>btn.addEventListener('click',()=>{ const id=btn.dataset.market; marketState[id]=marketState[id]||{}; marketState[id].choice=btn.dataset.choice; marketState[id].amount=marketState[id].amount||50; renderMarkets(); }));
+      $$('[data-market-amount]').forEach(btn=>btn.addEventListener('click',()=>{ const id=btn.dataset.marketAmount; marketState[id].amount=+btn.dataset.amount; renderMarkets(); }));
+      $$('[data-confirm-market]').forEach(btn=>btn.addEventListener('click',()=>{ const id=btn.dataset.confirmMarket; const st=marketState[id]; if(!st) return; addPoints(st.amount,'Prédiction Clash','↗'); addPoints(18,'Progression prediction','⚡'); const task=TASKS.find(t=>t.id==='t4'); if(task) task.done=true; updateUI(); openModal('Prédiction envoyée','Ton pick a été enregistré. Les prédictions donnent maintenant des points.',`+${st.amount} points`,[{label:'Continuer',kind:'btn3d',onClick:closeModal}]); }));
     }
 
     function renderTasks(){
-      $("#taskList").innerHTML = TASKS.map(t => `
-        <div class="taskCard ${t.done ? 'done' : 'pending'}" data-task="${t.id}">
-          <div class="pill">${t.done ? "✅ Terminée" : "⚡ À faire"}</div>
-          <div class="cardTitle">${t.icon} ${t.title}</div>
-          <div class="cardText">${t.done ? "Mission accomplie" : "Récompense : +" + t.reward + " SPID"}</div>
-          <div class="cardBottom">
-            <div class="subPill">${t.done ? "Réclamée" : "Récompense prête"}</div>
-            <button class="taskClaim ${t.done ? 'done' : 'pending'}" ${t.done ? 'disabled' : ''}>
-              ${t.done ? 'Terminée' : 'Cliquer pour réclamer'}
-            </button>
-          </div>
-        </div>
-      `).join("");
-
-      $$("[data-task]").forEach(card => card.addEventListener("click", () => {
-        const task = TASKS.find(t => t.id === card.dataset.task);
-        if(!task || task.done) return;
-        task.done = true;
-        addSpid(task.reward, "Mission : " + task.title, "⚡");
-        renderTasks();
-        showToast("Mission validée");
-      }));
+      $("#taskList").innerHTML=TASKS.map(t=>`<div class="taskCard ${t.done?'done':'pending'}" data-task="${t.id}"><div class="pill">${t.done?'✅ Terminée':'⚡ À faire'}</div><div class="cardTitle">${t.icon} ${t.title}</div><div class="cardText">${t.done?'Mission accomplie':'Récompense : +'+t.reward+' SPID • +'+t.points+' Points'}</div><div class="cardBottom"><div class="subPill">${t.done?'Réclamée':'Récompense prête'}</div><button class="taskClaim ${t.done?'done':'pending'}" ${t.done?'disabled':''}>${t.done?'Terminée':'Cliquer pour réclamer'}</button></div></div>`).join('');
+      $$('[data-task]').forEach(card=>card.addEventListener('click',()=>{ const task=TASKS.find(t=>t.id===card.dataset.task); if(!task||task.done) return; task.done=true; addSpid(task.reward,'Mission : '+task.title,'⚡'); addPoints(task.points,'Points mission : '+task.title,'⚡'); renderTasks(); showToast('Mission validée'); }));
     }
-
+    function renderHomeMissions(){ const homeTasks=TASKS.slice(0,3); $("#homeMissionGrid").innerHTML=homeTasks.map(t=>`<div class="missionMini ${t.done?'done':'pending'}"><div><div class="pill">${t.done?'✅ OK':'⚡ Mission'}</div><div class="cardTitle">${t.icon} ${t.title}</div><div class="cardText">${t.done?'Déjà terminée':'+'+t.reward+' SPID • +'+t.points+' Points'}</div></div><div class="cardBottom"><div class="subPill">${t.done?'Mission finie':'À faire'}</div></div></div>`).join(''); }
     function renderRewards(){
-      $("#rewardGrid").innerHTML = REWARDS.map((r,i) => `
-        <div class="rewardCard" data-reward="${i}">
-          <div>
-            <div class="rewardVisual">${r.icon}</div>
-            <div class="pill">🎁 ${r.tag}</div>
-            <div class="cardTitle" style="margin-top:10px">${r.name}</div>
-            <div class="cardText">Échange premium</div>
-          </div>
-          <div class="cardBottom">
-            <div class="subPill">🪙 ${fmt(r.cost)} SPID</div>
-            <button class="btn3d" style="padding:10px 14px">Échanger</button>
-          </div>
-        </div>
-      `).join("");
-
-      $$("[data-reward]").forEach(card => card.addEventListener("click", () => {
-        const item = REWARDS[+card.dataset.reward];
-        if(STATE.spid < item.cost){
-          showToast("Pas assez de SPID");
-          return;
-        }
-        addSpid(-item.cost, "Reward shop : " + item.name, "🎁");
-        const task = TASKS.find(t => t.id === "t5");
-        if(task) task.done = true;
-        updateUI();
-
-        openModal(
-          "Objet débloqué",
-          item.name + " a été ajouté à tes récompenses.",
-          `-${item.cost} SPID`,
-          [{ label:"Top", kind:"btn3d", onClick: closeModal }]
-        );
-      }));
+      $("#rewardGrid").innerHTML=REWARDS.map((r,i)=>`<div class="rewardCard" data-reward="${i}"><div><div class="rewardVisual">${r.icon}</div><div class="pill">🎁 ${r.tag}</div><div class="cardTitle" style="margin-top:10px">${r.name}</div><div class="cardText">Échange premium</div></div><div class="cardBottom"><div class="subPill">🪙 ${fmt(r.cost)} SPID</div><button class="btn3d" style="padding:10px 14px">Échanger</button></div></div>`).join('');
+      $$('[data-reward]').forEach(card=>card.addEventListener('click',()=>{ const item=REWARDS[+card.dataset.reward]; if(STATE.spid<item.cost){ showToast('Pas assez de SPID'); return; } addSpid(-item.cost,'Reward shop : '+item.name,'🎁'); addPoints(15,'Achat reward : '+item.name,'⚡'); const task=TASKS.find(t=>t.id==='t5'); if(task) task.done=true; updateUI(); openModal('Objet débloqué',item.name+' a été ajouté à tes récompenses.',`-${item.cost} SPID`,[{label:'Top',kind:'btn3d',onClick:closeModal}]); }));
     }
-
-    function renderHistory(){
-      $("#historyList").innerHTML = history.slice(0,8).map(h => `
-        <div class="historyItem">
-          <div style="display:flex;align-items:center;gap:10px">
-            <div style="font-size:22px">${h.icon}</div>
-            <div style="font-weight:900">${h.label}</div>
-          </div>
-          <div style="font-weight:900;color:${h.delta >= 0 ? '#fff59b' : '#ffb0bc'}">
-            ${h.delta >= 0 ? '+' : ''}${fmt(h.delta)} SPID
-          </div>
-        </div>
-      `).join("") || `<div class="historyItem"><div>Aucune activité</div></div>`;
-    }
-
-    function openEditProfile(){
-      openModal(
-        "Modifier le compte",
-        `
-        <div class="field">
-          <label>Nom utilisateur</label>
-          <input class="input" id="profileInputName" value="${STATE.profileName}">
-        </div>
-        <div class="field">
-          <label>Adresse de livraison</label>
-          <input class="input" id="profileInputAddress" value="${STATE.address}" placeholder="Ton adresse complète">
-        </div>
-        <div class="field">
-          <label>Date de naissance</label>
-          <input class="input" type="date" id="profileInputBirth" value="${STATE.birthdate}">
-        </div>
-        `,
-        "",
-        [
-          {
-            label:"Enregistrer",
-            kind:"btn3d",
-            onClick: () => {
-              const name = $("#profileInputName").value.trim();
-              const address = $("#profileInputAddress").value.trim();
-              const birth = $("#profileInputBirth").value;
-              STATE.profileName = name || "Joueur_7842";
-              STATE.address = address;
-              STATE.birthdate = birth;
-              updateUI();
-              closeModal();
-              showToast("Compte mis à jour");
-            }
-          },
-          { label:"Annuler", kind:"btnGhost", onClick: closeModal }
-        ]
-      );
-    }
-
-    $("#editProfileBtn").addEventListener("click", openEditProfile);
-
-    $("#clearHistoryBtn").addEventListener("click", () => {
-      history = [];
-      renderHistory();
-      showToast("Historique effacé");
-    });
-
-    $("#deleteAccountBtn")?.addEventListener("click", () => {
-      openModal(
-        "Supprimer mon compte",
-        "Cette action est sensible. Ici, c’est une démo visuelle : le compte ne sera pas réellement supprimé.",
-        "",
-        [
-          { label:"Annuler", kind:"btnGhost", onClick: closeModal },
-          { label:"Confirmer", kind:"btn3d", onClick: () => {
-              closeModal();
-              showToast("Option de suppression affichée");
-            }
-          }
-        ]
-      );
-    });
-
-    function init(){
-      renderWheelPrizes();
-      drawWheel(0);
-      renderLotterySelection();
-      renderScratchSelection();
-      buildLottery();
-      newScratchTicket();
-      renderMarkets();
-      renderTasks();
-      renderRewards();
-      updateUI();
-      go("home");
-    }
-
+    function renderHistory(){ $("#historyList").innerHTML=history.slice(0,8).map(h=>`<div class="historyItem"><div style="display:flex;align-items:center;gap:10px"><div style="font-size:22px">${h.icon}</div><div style="font-weight:900">${h.label}</div></div><div style="font-weight:900;color:${h.type==='ticket'?'#ffd9a8':(h.type==='points'?'#8cecff':(h.delta>=0?'#fff59b':'#ffb0bc'))}">${h.type==='ticket'?'En attente 20h':(h.delta>=0?'+':'')+fmt(h.delta)+' '+(h.type==='points'?'Points':'SPID')}</div></div>`).join('') || `<div class="historyItem"><div>Aucune activité</div></div>`; }
+    function openEditProfile(){ openModal('Modifier le compte',`<div class="field"><label>Nom utilisateur</label><input class="input" id="profileInputName" value="${STATE.profileName}"></div><div class="field"><label>Adresse de livraison</label><input class="input" id="profileInputAddress" value="${STATE.address}" placeholder="Ton adresse complète"></div><div class="field"><label>Date de naissance</label><input class="input" type="date" id="profileInputBirth" value="${STATE.birthdate}"></div>`,"",[{label:'Enregistrer',kind:'btn3d',onClick:()=>{ const name=$("#profileInputName").value.trim(), address=$("#profileInputAddress").value.trim(), birth=$("#profileInputBirth").value; STATE.profileName=name||'Joueur_7842'; STATE.address=address; STATE.birthdate=birth; updateUI(); closeModal(); showToast('Compte mis à jour'); }},{label:'Annuler',kind:'btnGhost',onClick:closeModal}]); }
+    $("#editProfileBtn").addEventListener('click',openEditProfile);
+    $("#clearHistoryBtn").addEventListener('click',()=>{ history=[]; renderHistory(); showToast('Historique effacé'); });
+    $("#deleteAccountBtn")?.addEventListener('click',()=>{ openModal('Supprimer mon compte','Cette action est sensible. Ici, c’est une démo visuelle : le compte ne sera pas réellement supprimé.','',[{label:'Annuler',kind:'btnGhost',onClick:closeModal},{label:'Confirmer',kind:'btn3d',onClick:()=>{ closeModal(); showToast('Option de suppression affichée'); }}]); });
+    function init(){ renderWheelPrizes(); drawWheel(0); renderLotterySelection(); renderScratchSelection(); buildLottery(); newScratchTicket(); renderMarkets(); renderTasks(); renderRewards(); renderHomeMissions(); updateUI(); go('home'); }
     init();
   </script>
 </body>
